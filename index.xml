@@ -10,10 +10,10 @@
     
     <item>
       <title>浅谈跨域威胁与安全</title>
-      <link>https://darknoll.github.io/2019/test1/</link>
+      <link>https://darknoll.github.io/2019/001/</link>
       <pubDate>Wed, 14 Aug 2019 10:58:21 +0800</pubDate>
       
-      <guid>https://darknoll.github.io/2019/test1/</guid>
+      <guid>https://darknoll.github.io/2019/001/</guid>
       <description>
 
 &lt;h3 id=&#34;web前端中最常见的两种安全风险-xss与csrf-xss-即跨站脚本攻击-csrf即跨站请求伪造-两者属于跨域安全攻击-对于常见的xss以及csrf在此不多谈论-仅谈论一些不太常见的跨域技术以及安全威胁&#34;&gt;WEB前端中最常见的两种安全风险，XSS与CSRF，XSS，即跨站脚本攻击、CSRF即跨站请求伪造,两者属于跨域安全攻击，对于常见的XSS以及CSRF在此不多谈论，仅谈论一些不太常见的跨域技术以及安全威胁&lt;/h3&gt;
