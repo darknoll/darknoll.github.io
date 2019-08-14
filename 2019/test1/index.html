@@ -22,10 +22,10 @@
   <title>
        
        
-           Test1 | Darknoll`s Blog
+           浅谈跨域威胁与安全 | Darknoll`s Blog
        
   </title>
-  <meta name="title" content="Test1 | Darknoll`s Blog">
+  <meta name="title" content="浅谈跨域威胁与安全 | Darknoll`s Blog">
     
   
   <link rel="stylesheet" href="/font/iconfont.css">
@@ -44,21 +44,21 @@
          "@id": "https:\/\/darknoll.github.io"
     },
     "articleSection" : "posts",
-    "name" : "Test1",
-    "headline" : "Test1",
-    "description" : "This is a test page! This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I\x26rsquo;ll explain how Hugo uses templates and how you can organize your templates to create a theme. I won\x26rsquo;t cover using CSS to style your theme. We\x26rsquo;ll start with creating",
+    "name" : "浅谈跨域威胁与安全",
+    "headline" : "浅谈跨域威胁与安全",
+    "description" : "WEB前端中最常见的两种安全风险，XSS与CSRF，XSS，即跨站脚本攻击、CSRF即跨站请求伪造,两者属于跨域安全攻击，对于常见的XSS以",
     "inLanguage" : "zh-cn",
-    "author" : "杨玉成",
-    "creator" : "杨玉成",
-    "publisher": "杨玉成",
-    "accountablePerson" : "杨玉成",
-    "copyrightHolder" : "杨玉成",
+    "author" : "Admin",
+    "creator" : "Admin",
+    "publisher": "Admin",
+    "accountablePerson" : "Admin",
+    "copyrightHolder" : "Admin",
     "copyrightYear" : "2019",
     "datePublished": "2019-08-14 10:58:21 \x2b0800 CST",
     "dateModified" : "2019-08-14 10:58:21 \x2b0800 CST",
     "url" : "https:\/\/darknoll.github.io\/2019\/test1\/",
-    "wordCount" : "104",
-    "keywords" : [ "Theme","Hugo", "Darknoll`s Blog"]
+    "wordCount" : "476",
+    "keywords" : [ "跨域", "Darknoll`s Blog"]
 }
 </script>
 
@@ -116,16 +116,16 @@
       		
 <article class="post-warp" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">Test1</h1>
+        <h1 class="post-title" itemprop="name headline">浅谈跨域威胁与安全</h1>
         <div class="post-meta">
-                Written by <a itemprop="name" href="https://darknoll.github.io" rel="author">杨玉成</a> with ♥ 
+                Written by <a itemprop="name" href="https://darknoll.github.io" rel="author">Admin</a> with ♥ 
                 <span class="post-time">
                 on <time datetime=2019-08-14 itemprop="datePublished">August 14, 2019</time>
                 </span>
                 in
                 <i class="iconfont icon-folder"></i>
                 <span class="post-category">
-                        <a href="https://darknoll.github.io/categories/uncategorized/"> Uncategorized </a>
+                        <a href="https://darknoll.github.io/categories/web%E5%AE%89%E5%85%A8/"> Web安全 </a>
                         
                 </span>
         </div>
@@ -148,11 +148,50 @@
 
           
 
-<h2 id="this-is-a-test-page">This is a test page!</h2>
+<h3 id="web前端中最常见的两种安全风险-xss与csrf-xss-即跨站脚本攻击-csrf即跨站请求伪造-两者属于跨域安全攻击-对于常见的xss以及csrf在此不多谈论-仅谈论一些不太常见的跨域技术以及安全威胁">WEB前端中最常见的两种安全风险，XSS与CSRF，XSS，即跨站脚本攻击、CSRF即跨站请求伪造,两者属于跨域安全攻击，对于常见的XSS以及CSRF在此不多谈论，仅谈论一些不太常见的跨域技术以及安全威胁</h3>
 
-<p>This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I&rsquo;ll explain how Hugo uses templates and how you can organize your templates to create a theme. I won&rsquo;t cover using CSS to style your theme.</p>
+<ul>
+<li>域</li>
+</ul>
 
-<p>We&rsquo;ll start with creating a new site with a very basic template. Then we&rsquo;ll add in a few pages and posts. With small variations on that, you will be able to create many different types of web sites</p>
+<p>域，即域名对应的网站。不同的域名对应的不同的网站，相同的域名不同的端口也对应的不同的网站，因此，域，从字面意思以及实质意思都为空间，所以在web中空间即代表的是网站。</p>
+
+<ul>
+<li><p>同源策略（SOP）</p>
+
+<ul>
+<li>同源策略定义
+<br /></li>
+</ul>
+
+<p>同源策略限制了从同一个源加载的文档或脚本如何与来自另一个源的资源进行交互。这是一个用于隔离潜在恶意文件的重要安全机制。
+同源策略必须要同时满足以下三个条件，只要有任何一个不同，都被当作是不同的域：</p></li>
+</ul>
+
+<blockquote>
+<ol>
+<li>协议相同</li>
+<li>域名相同</li>
+<li>端口号相同</li>
+</ol>
+</blockquote>
+
+<pre><code>举例说明：
+
+| 协议 | 域名 | 端口 | 是否同源 | 原因 |
+| ---------- | --- | --- | --- | --- |
+| http | www.a.com | 80 | ||
+| http | www.b.com | 80 | 否 | 域名不同 |
+| https | www.a.com | 80 | 否 | 协议不同 |
+| http | www.a.com | 8080 | 否 | 端口不同 |
+&lt;/br&gt;
+</code></pre>
+
+<ul>
+<li><p>同源策略限制</p>
+
+<p>同源策略限制了只有同源的脚本才会被执行，当打开一个网站的时候，会首先检查是否同源，如果非同源，在请求数据的时候，浏览器就会进行拦截报异常，拒绝访问。</p></li>
+</ul>
 
     </div>
 
@@ -183,11 +222,8 @@
             <section>
             <i class="iconfont icon-tag"></i>Tag(s): 
             
-            <span class="tag"><a href="https://darknoll.github.io/tags/theme/">
-                    #Theme</a></span>
-            
-            <span class="tag"><a href="https://darknoll.github.io/tags/hugo/">
-                    #Hugo</a></span>
+            <span class="tag"><a href="https://darknoll.github.io/tags/%E8%B7%A8%E5%9F%9F/">
+                    #跨域</a></span>
             
             </section>
         

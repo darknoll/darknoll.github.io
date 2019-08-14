@@ -9,18 +9,57 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>Test1</title>
+      <title>浅谈跨域威胁与安全</title>
       <link>https://darknoll.github.io/2019/test1/</link>
       <pubDate>Wed, 14 Aug 2019 10:58:21 +0800</pubDate>
       
       <guid>https://darknoll.github.io/2019/test1/</guid>
       <description>
 
-&lt;h2 id=&#34;this-is-a-test-page&#34;&gt;This is a test page!&lt;/h2&gt;
+&lt;h3 id=&#34;web前端中最常见的两种安全风险-xss与csrf-xss-即跨站脚本攻击-csrf即跨站请求伪造-两者属于跨域安全攻击-对于常见的xss以及csrf在此不多谈论-仅谈论一些不太常见的跨域技术以及安全威胁&#34;&gt;WEB前端中最常见的两种安全风险，XSS与CSRF，XSS，即跨站脚本攻击、CSRF即跨站请求伪造,两者属于跨域安全攻击，对于常见的XSS以及CSRF在此不多谈论，仅谈论一些不太常见的跨域技术以及安全威胁&lt;/h3&gt;
 
-&lt;p&gt;This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I&amp;rsquo;ll explain how Hugo uses templates and how you can organize your templates to create a theme. I won&amp;rsquo;t cover using CSS to style your theme.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;域&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;p&gt;We&amp;rsquo;ll start with creating a new site with a very basic template. Then we&amp;rsquo;ll add in a few pages and posts. With small variations on that, you will be able to create many different types of web sites&lt;/p&gt;
+&lt;p&gt;域，即域名对应的网站。不同的域名对应的不同的网站，相同的域名不同的端口也对应的不同的网站，因此，域，从字面意思以及实质意思都为空间，所以在web中空间即代表的是网站。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;同源策略（SOP）&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;同源策略定义
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;同源策略限制了从同一个源加载的文档或脚本如何与来自另一个源的资源进行交互。这是一个用于隔离潜在恶意文件的重要安全机制。
+同源策略必须要同时满足以下三个条件，只要有任何一个不同，都被当作是不同的域：&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;协议相同&lt;/li&gt;
+&lt;li&gt;域名相同&lt;/li&gt;
+&lt;li&gt;端口号相同&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+
+&lt;pre&gt;&lt;code&gt;举例说明：
+
+| 协议 | 域名 | 端口 | 是否同源 | 原因 |
+| ---------- | --- | --- | --- | --- |
+| http | www.a.com | 80 | ||
+| http | www.b.com | 80 | 否 | 域名不同 |
+| https | www.a.com | 80 | 否 | 协议不同 |
+| http | www.a.com | 8080 | 否 | 端口不同 |
+&amp;lt;/br&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;同源策略限制&lt;/p&gt;
+
+&lt;p&gt;同源策略限制了只有同源的脚本才会被执行，当打开一个网站的时候，会首先检查是否同源，如果非同源，在请求数据的时候，浏览器就会进行拦截报异常，拒绝访问。&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
 </description>
     </item>
     
@@ -31,8 +70,6 @@
       
       <guid>https://darknoll.github.io/about/</guid>
       <description>
-
-&lt;h2 id=&#34;darknoll&#34;&gt;Darknoll&lt;/h2&gt;
 </description>
     </item>
     
