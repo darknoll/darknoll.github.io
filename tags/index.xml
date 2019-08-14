@@ -6,9 +6,28 @@
     <description>Recent content in Tags on Darknoll`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
+    <lastBuildDate>Wed, 14 Aug 2019 10:58:21 +0800</lastBuildDate>
     
 	<atom:link href="https://darknoll.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Hugo</title>
+      <link>https://darknoll.github.io/tags/hugo/</link>
+      <pubDate>Wed, 14 Aug 2019 10:58:21 +0800</pubDate>
+      
+      <guid>https://darknoll.github.io/tags/hugo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Theme</title>
+      <link>https://darknoll.github.io/tags/theme/</link>
+      <pubDate>Wed, 14 Aug 2019 10:58:21 +0800</pubDate>
+      
+      <guid>https://darknoll.github.io/tags/theme/</guid>
+      <description></description>
+    </item>
     
   </channel>
 </rss>
