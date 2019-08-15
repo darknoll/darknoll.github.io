@@ -64,12 +64,21 @@
     </item>
     
     <item>
-      <title>About</title>
+      <title></title>
       <link>https://darknoll.github.io/about/</link>
       <pubDate>Wed, 14 Aug 2019 10:28:04 +0800</pubDate>
       
       <guid>https://darknoll.github.io/about/</guid>
       <description>
+
+&lt;h3 id=&#34;个人博客-日记&#34;&gt;个人博客/日记&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;联系邮箱：&lt;a href=&#34;matio://darknoll@126.com&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;darknoll@126.com&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Github地址：&lt;a href=&#34;http://github.com&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;darknoll&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://i.loli.net/2019/08/15/WuJbIO5MCk1PxiT.jpg&#34; style=&#34;zoom:100%&#34;&gt;&lt;/p&gt;
 </description>
     </item>
     
