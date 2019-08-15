@@ -16,25 +16,19 @@
       <guid>https://darknoll.github.io/2019/001/</guid>
       <description>
 
-&lt;h3 id=&#34;web前端中最常见的两种安全风险-xss与csrf-xss-即跨站脚本攻击-csrf即跨站请求伪造-两者属于跨域安全攻击-对于常见的xss以及csrf在此不多谈论-仅谈论一些不太常见的跨域技术以及安全威胁&#34;&gt;WEB前端中最常见的两种安全风险，XSS与CSRF，XSS，即跨站脚本攻击、CSRF即跨站请求伪造,两者属于跨域安全攻击，对于常见的XSS以及CSRF在此不多谈论，仅谈论一些不太常见的跨域技术以及安全威胁&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;WEB前端中最常见的两种安全风险，XSS与CSRF，XSS，即跨站脚本攻击、CSRF即跨站请求伪造,两者属于跨域安全攻击，对于常见的XSS以及CSRF在此不多谈论，仅谈论一些不太常见的跨域技术以及安全威胁。&lt;/strong&gt;&lt;/p&gt;
 
-&lt;ul&gt;
-&lt;li&gt;域&lt;/li&gt;
-&lt;/ul&gt;
+&lt;h2 id=&#34;一-域&#34;&gt;一、 域&lt;/h2&gt;
 
 &lt;p&gt;域，即域名对应的网站。不同的域名对应的不同的网站，相同的域名不同的端口也对应的不同的网站，因此，域，从字面意思以及实质意思都为空间，所以在web中空间即代表的是网站。&lt;/p&gt;
 
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;同源策略（SOP）&lt;/p&gt;
+&lt;h2 id=&#34;二-同源策略-sop&#34;&gt;二、同源策略（SOP）&lt;/h2&gt;
 
-&lt;ul&gt;
-&lt;li&gt;同源策略定义
-&lt;br /&gt;&lt;/li&gt;
-&lt;/ul&gt;
+&lt;h3 id=&#34;2-1-同源策略定义&#34;&gt;2.1 同源策略定义&lt;/h3&gt;
 
-&lt;p&gt;同源策略限制了从同一个源加载的文档或脚本如何与来自另一个源的资源进行交互。这是一个用于隔离潜在恶意文件的重要安全机制。
-同源策略必须要同时满足以下三个条件，只要有任何一个不同，都被当作是不同的域：&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;同源策略限制了从同一个源加载的文档或脚本如何与来自另一个源的资源进行交互。这是一个用于隔离潜在恶意文件的重要安全机制。&lt;/p&gt;
+
+&lt;p&gt;同源策略必须要同时满足以下三个条件，只要有任何一个不同，都被当作是不同的域：&lt;/p&gt;
 
 &lt;blockquote&gt;
 &lt;ol&gt;
@@ -44,41 +38,373 @@
 &lt;/ol&gt;
 &lt;/blockquote&gt;
 
-&lt;pre&gt;&lt;code&gt;举例说明：
+&lt;p&gt;举例说明：&lt;/p&gt;
 
-| 协议 | 域名 | 端口 | 是否同源 | 原因 |
-| ---------- | --- | --- | --- | --- |
-| http | www.a.com | 80 | ||
-| http | www.b.com | 80 | 否 | 域名不同 |
-| https | www.a.com | 80 | 否 | 协议不同 |
-| http | www.a.com | 8080 | 否 | 端口不同 |
-&amp;lt;/br&amp;gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;left&#34;&gt;协议&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;域名&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;端口&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;是否同源&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;原因&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;http&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;a href=&#34;http://www.a.com/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;www.a.com&lt;/a&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;80&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;http&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;a href=&#34;http://www.b.com/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;www.b.com&lt;/a&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;80&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;否&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;域名不同&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;https&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;a href=&#34;http://www.a.com/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;www.a.com&lt;/a&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;80&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;否&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;协议不同&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;http&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;&lt;a href=&#34;http://www.a.com/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;www.a.com&lt;/a&gt;&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;8080&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;否&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;端口不同&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&#34;2-2-同源策略限制&#34;&gt;2.2 同源策略限制&lt;/h3&gt;
+
+&lt;p&gt;同源策略限制了只有同源的脚本才会被执行，当打开一个网站的时候，会首先检查是否同源，如果非同源，在请求数据的时候，浏览器就会进行拦截报异常，拒绝访问。&lt;/p&gt;
+
+&lt;h2 id=&#34;三-跨域本质&#34;&gt;三、跨域本质&lt;/h2&gt;
+
+&lt;p&gt;跨域本质就是绕过同源策略的严格限制，安全与实用往往有时候会有一定的矛盾性，开发人员更注重的是功能的开发使用，例如有时候同二级域名下的不同三级域名需要进行一些信息数据传输时，共享一些资源时，同源策略将其限制，但是又要实现该功能，此时就诞生了一些跨越请求的技术。&lt;/p&gt;
+
+&lt;h2 id=&#34;四-跨域技术&#34;&gt;四、跨域技术&lt;/h2&gt;
+
+&lt;p&gt;本文将介绍较大范围的跨域，即从一个域到另一个域都将其归为跨域。因此，将其归结为两种情况：&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;跨域请求&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;跨域跳转&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;五-跨域威胁&#34;&gt;五、跨域威胁&lt;/h2&gt;
+
+&lt;h3 id=&#34;5-1-jsonp跨域&#34;&gt;5.1 JSONP跨域&lt;/h3&gt;
+
+&lt;p&gt;5.1.1 jsonp跨域原理&lt;/p&gt;
+
+&lt;p&gt;利用&lt;code&gt;&amp;lt;script&amp;gt;&lt;/code&gt;标签没有跨域限制的漏洞，网页可以从其他来源域动态获取json数据，jsonp跨域请求一定需要对方的服务器支持才可以。&lt;/p&gt;
+
+&lt;p&gt;5.1.2 jsonp实现流程&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;服务端必须支持jsonp，且拥有jsonp跨域接口（前提）&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;浏览器客户端声明一个回调函数，其函数名作为参数值，要传递给跨域请求数据的服务器，函数形参为要获取到的返回目标数据&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;创建一个&lt;code&gt;&amp;lt;script&amp;gt;&lt;/code&gt;标签，把跨域的API数据接口加载到src属性，并且在这个地址向服务器传递该回调函数名&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;服务器会将数据返回到浏览器客户端，此时客户端会调用回调函数，对返回的数据进行处理&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;5.1.3 jsonp代码实战&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-php&#34;&gt;&amp;lt;?php
+error_reporting(0);
+$callback = $_GET[&#39;callback&#39;];
+echo $callback.&amp;quot;({&#39;id&#39;:1,&#39;name&#39;:&#39;missfresh&#39;})&amp;quot;
+?&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;同源策略限制&lt;/p&gt;
+&lt;p&gt;以上即为一个简单的jsonp的服务端接口，假设该接口是一个获取用户的个人信息的接口，那么此时只要请求该接口，每个用户就获取到自己该有的个人信息，&lt;/p&gt;
 
-&lt;p&gt;同源策略限制了只有同源的脚本才会被执行，当打开一个网站的时候，会首先检查是否同源，如果非同源，在请求数据的时候，浏览器就会进行拦截报异常，拒绝访问。&lt;/p&gt;&lt;/li&gt;
+&lt;p&gt;为了更加符合通常的开发实际情况，一般用户获取个人信息流程：&lt;/p&gt;
+
+&lt;p&gt;登陆-&amp;gt;服务器验证-&amp;gt;session-&amp;gt;通过session判断用户-&amp;gt;个人信息&lt;/p&gt;
+
+&lt;p&gt;5.1.4 JSONP安全威胁&lt;/p&gt;
+
+&lt;p&gt;JSONP威胁点通常有两个：&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;对于输入的callback函数名过滤不严格，导致输入的数据直接输出到前端造成XSS&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;JSONP劫持漏洞，由于对于来源域没有严格限制，因此来源于不安全的域的请求也会被响应&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&#34;5-2-cors跨域&#34;&gt;5.2 CORS跨域&lt;/h3&gt;
+
+&lt;p&gt;5.2.1 CORS跨域原理&lt;/p&gt;
+
+&lt;p&gt;CORS（Cross Origin Resource Sharing），跨域资源共享，为了弥补JSONP等跨域常见技术的缺陷，而提出的安全方便的跨域方案。它允许浏览器想跨域服务器，发出XMLHttpRequest请求，从而克服AJAX只能同源使用的限制。&lt;/p&gt;
+
+&lt;p&gt;CORS需要浏览器和服务器同时支持，相比JSONP更加复杂，但是一般目前的浏览器都是支持的，服务器只需要进行相应配置，其通信过程都是浏览器自动完成，对于开发人员来说，跟写AJAX的代码没有区别，只是会在发送跨域请求时在HTTP请求头中添加一些字段来验证，关键字段如下:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Access-Control-Allow-Origin：指定哪些域可以访问域资源。例如，如果requester.com想要访问provider.com的资源，那么开发人员可以使用此标头安全地授予requester.com对provider.com资源的访问权限。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Access-Control-Allow-Credentials：指定浏览器是否将使用请求发送cookie。仅当allow-credentials标头设置为true时，才会发送Cookie。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Access-Control-Allow-Methods：指定可以使用哪些HTTP请求方法（GET，PUT，DELETE等）来访问资源。此标头允许开发人员通过在requester.com请求访问provider.com的资源时，指定哪些方法有效来进一步增强安全性。&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;5.2.2 CORS实现流程&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;服务器配置支持CORS，默认认可所有域都可以访问&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;浏览器客户端把所在的域填充到Origin发送跨域请求&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;服务器根据资源权限配置，在响应头中添加ccess-Control-Allow-Origin Header，返回结果&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;浏览器比较服务器返回的Access-Control-Allow-Origin Header和请求域的Origin，如果当前域获得授权，则将结果返回给页面&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;5.2.3 CORS安全威胁&lt;/p&gt;
+
+&lt;p&gt;CORS一般最常见的安全威胁就是CORS错误配置导致资源信息泄漏，与JSONP劫持基本上一致。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;漏洞原理&lt;/strong&gt;：通常开发人员使用CORS一般默认允许来自所有域或者由于错误的正则匹配方式造成绕过规定的白名单域&lt;/p&gt;
+
+&lt;p&gt;1、CORS漏洞利用前提&lt;/p&gt;
+
+&lt;p&gt;（1）有用户凭证的&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://sec-soc-1255613256.cos.ap-beijing.myqcloud.com/image/6d6b17e73a6842e089d79d62c1aa5fbf.png&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;https://sec-soc-1255613256.cos.ap-beijing.myqcloud.com/image/6d6b17e73a6842e089d79d62c1aa5fbf.png&#34; alt=&#34;&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;（2）无用户凭证的&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://sec-soc-1255613256.cos.ap-beijing.myqcloud.com/image/c428865faaa74d249acff74d93c6efec.png&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;https://sec-soc-1255613256.cos.ap-beijing.myqcloud.com/image/c428865faaa74d249acff74d93c6efec.png&#34; alt=&#34;&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;2、实际案例&lt;/p&gt;
+
+&lt;p&gt;以一加官网为例&lt;/p&gt;
+
+&lt;p&gt;登陆后，访问个人信息，然后利用burpsuite抓包，修改origin的域，发现任意域都可以被服务器接受&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://sec-soc-1255613256.cos.ap-beijing.myqcloud.com/image/be160ad42d2243dfbf342d2f91d9afbd.png&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;https://sec-soc-1255613256.cos.ap-beijing.myqcloud.com/image/be160ad42d2243dfbf342d2f91d9afbd.png&#34; alt=&#34;&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;构造exp：&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://sec-soc-1255613256.cos.ap-beijing.myqcloud.com/image/086167da01094cb9803fb97f7ff977e7.png&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;https://sec-soc-1255613256.cos.ap-beijing.myqcloud.com/image/086167da01094cb9803fb97f7ff977e7.png&#34; alt=&#34;&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;成功利用该exp：&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://sec-soc-1255613256.cos.ap-beijing.myqcloud.com/image/7d91ca4d2e5d42019002407452139f9d.png&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;https://sec-soc-1255613256.cos.ap-beijing.myqcloud.com/image/7d91ca4d2e5d42019002407452139f9d.png&#34; alt=&#34;&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;5-3-postmessage跨域&#34;&gt;5.3 PostMessage跨域&lt;/h3&gt;
+
+&lt;p&gt;5.3.1 PostMessage跨域原理&lt;/p&gt;
+
+&lt;p&gt;PostMeaage是H5新引入的实现跨域窗口之间的通讯，可以安全地实现windows对象之间的跨域通信&lt;/p&gt;
+
+&lt;p&gt;PostMessage主要依靠Window.postMessage方法，该方法有三个参数&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;message：发送到其他窗口的数据&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;targetOrigin：接受数据消息的目标窗口,当该值为星号（* ）表示任意一个域都可以接受消息&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;transfer： 可选项，代表纤细的所有权&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;除了发送之外，必然有一个接受消息的窗口，一般用window.addEventListener(“message”,receiveMessage.false),用以接受消息数据&lt;/p&gt;
+
+&lt;p&gt;5.3.2 PostMessage实现流程&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;创建一个页面A，定义一个Postmessage方法&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;创建一个页面B，定义一个window.addEventListener(“message”，function）方法接受来源于Postmessage方法的消息&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;页面A使用Iframe标签包含页面B，触发Postmessage方法即可&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://sec-soc-1255613256.cos.ap-beijing.myqcloud.com/image/bcdd2b37ad704ae2ad5b457c5e70c3c7.jpg&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;https://sec-soc-1255613256.cos.ap-beijing.myqcloud.com/image/bcdd2b37ad704ae2ad5b457c5e70c3c7.jpg&#34; alt=&#34;&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;5.3.3 PostMessage安全威胁&lt;/p&gt;
+
+&lt;p&gt;PostMessage跨越一般威胁点在于对于目标域限制不严格导致的，大多数开发人员由于对于postmessage防范中targetOrigin参数默认为* ，因此只要包含了该方法页面，构造利用代码，就能够获取到敏感信息。&lt;/p&gt;
+
+&lt;p&gt;1、漏洞利用前提&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;页面存在点击劫持&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;postmessage函数中的targetOrigin默认为* 或者targetOrigi对应的域不安全&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;2、实际案例&lt;/p&gt;
+
+&lt;p&gt;（1）构造xss&lt;/p&gt;
+
+&lt;p&gt;可以看到构造恶意xss，发送给目标域，就可以获取到目标域的cookie&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://sec-soc-1255613256.cos.ap-beijing.myqcloud.com/image/e36925bbcaed47bd9d0e0ff04c131511.png&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;https://sec-soc-1255613256.cos.ap-beijing.myqcloud.com/image/e36925bbcaed47bd9d0e0ff04c131511.png&#34; alt=&#34;&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;（2）窗口劫持&lt;/p&gt;
+
+&lt;p&gt;窗口劫持则主要针对发送消息的域，劫持该消息&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://sec-soc-1255613256.cos.ap-beijing.myqcloud.com/image/1567d57dda4b495793d81a7388163b75.jpeg&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;https://sec-soc-1255613256.cos.ap-beijing.myqcloud.com/image/1567d57dda4b495793d81a7388163b75.jpeg&#34; alt=&#34;&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://sec-soc-1255613256.cos.ap-beijing.myqcloud.com/image/c3fee14734e142578b25db78253940e7.jpeg&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;&lt;img src=&#34;https://sec-soc-1255613256.cos.ap-beijing.myqcloud.com/image/c3fee14734e142578b25db78253940e7.jpeg&#34; alt=&#34;&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;六-跨域安全场景&#34;&gt;六、跨域安全场景&lt;/h2&gt;
+
+&lt;p&gt;业务场景跨域场景主要有以下两个场景&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;共享个人信息数据&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;共享cookie数据&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&#34;6-1-共享cookie数据&#34;&gt;6.1 共享cookie数据&lt;/h3&gt;
+
+&lt;p&gt;目前常见的一种形式，就是统一登陆，所有的大型企业，基本上都采用这种方式，登陆验证后会在所有的该企业其他同三级域中授权，因此一旦某个域出现安全威胁后，就可能窃取到用户的cookie信息，就可以利用该用户的cookie信息伪装用户操作&lt;/p&gt;
+
+&lt;h3 id=&#34;6-2-共享个人信息数据&#34;&gt;6.2 共享个人信息数据&lt;/h3&gt;
+
+&lt;p&gt;有些时候，可能不存在类似xss这类漏洞，直接获取到用户的cookie信息，但是为了数据在资产域中交换，常常利用jsonp、cors技术，但是会存在配置错误就导致，默认所有域可访问、正则被绕过，引入的某个JS资源该服务器不安全等因素，导致数据被劫持&lt;/p&gt;
+
+&lt;h2 id=&#34;七-跨域安全方案&#34;&gt;七、跨域安全方案&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;对于跨域的安全域，要严格控制信任域，禁止配置默认所有域的情况，对于限制的正则表达式要严格测试通过&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;对于引入的JS等执行脚本，需要保证来源的安全性，避免来源服务器本身的不安全威胁&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;对于边缘业务子域，要控制其可信度，避免从边缘业务的漏洞影响核心业务&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;对于非归属业务，禁止子域分配给其他归属，避免第三方不遵守安全，存在漏洞风险，造成对归属业务的影响&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>
     
     <item>
-      <title></title>
+      <title>Darknoll</title>
       <link>https://darknoll.github.io/about/</link>
       <pubDate>Wed, 14 Aug 2019 10:28:04 +0800</pubDate>
       
       <guid>https://darknoll.github.io/about/</guid>
-      <description>
+      <description>&lt;p&gt;&lt;center style=&#34;font-family:楷体; font-size: 24px;&#34;&gt;天地玄黄 宇宙洪荒 日月盈昃 辰宿列张 寒来暑往 秋收冬藏 　&lt;/p&gt;
 
-&lt;h3 id=&#34;个人博客-日记&#34;&gt;个人博客/日记&lt;/h3&gt;
+&lt;p&gt;闰馀成岁 律吕调阳 云腾致雨 露结为霜 金生丽水 玉出昆冈 　&lt;/p&gt;
 
-&lt;ul&gt;
-&lt;li&gt;联系邮箱：&lt;a href=&#34;matio://darknoll@126.com&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;darknoll@126.com&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Github地址：&lt;a href=&#34;http://github.com&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;darknoll&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;剑号巨阙 珠称夜光 果珍李柰 菜重芥姜 海咸河淡 鳞潜羽翔 　&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;https://i.loli.net/2019/08/15/WuJbIO5MCk1PxiT.jpg&#34; style=&#34;zoom:100%&#34;&gt;&lt;/p&gt;
+&lt;p&gt;龙师火帝 鸟官人皇 始制文字 乃服衣裳 推位让国 有虞陶唐 　&lt;/p&gt;
+
+&lt;p&gt;吊民伐罪 周发殷汤 坐朝问道 垂拱平章 爱育黎首 臣伏戎羌 　&lt;/p&gt;
+
+&lt;p&gt;遐迩壹体 率宾归王 鸣凤在竹 白驹食场 化被草木 赖及万方 　&lt;/p&gt;
+
+&lt;p&gt;盖此身发 四大五常 恭惟鞠养 岂敢毁伤 女慕贞洁 男效才良 　&lt;/p&gt;
+
+&lt;p&gt;知过必改 得能莫忘 罔谈彼短 靡恃己长 信使可覆 器欲难量 　&lt;/p&gt;
+
+&lt;p&gt;墨悲丝染 诗赞羔羊 景行维贤 克念作圣 德建名立 形端表正 　&lt;/p&gt;
+
+&lt;p&gt;空谷传声 虚堂习听 祸因恶积 福缘善庆 尺璧非宝 寸阴是竞 　&lt;/p&gt;
+
+&lt;p&gt;资父事君 曰严与敬 孝当竭力 忠则尽命 临深履薄 夙兴温凊 　&lt;/p&gt;
+
+&lt;p&gt;似兰斯馨 如松之盛 川流不息 渊澄取映 容止若思 言辞安定 　&lt;/p&gt;
+
+&lt;p&gt;笃初诚美 慎终宜令 荣业所基 籍甚无竟 学优登仕 摄职从政 　&lt;/p&gt;
+
+&lt;p&gt;存以甘棠 去而益咏 乐殊贵贱 礼别尊卑 上和下睦 夫唱妇随 　&lt;/p&gt;
+
+&lt;p&gt;外受傅训 入奉母仪 诸姑伯叔 犹子比儿 孔怀兄弟 同气连枝 　&lt;/p&gt;
+
+&lt;p&gt;交友投分 切磨箴规 仁慈隐恻 造次弗离 节义廉退 颠沛匪亏 　&lt;/p&gt;
+
+&lt;p&gt;性静情逸 心动神疲 守真志满 逐物意移 坚持雅操 好爵自縻 　&lt;/p&gt;
+
+&lt;p&gt;都邑华夏 东西二京 背邙面洛 浮渭据泾 宫殿盘郁 楼观飞惊 　&lt;/p&gt;
+
+&lt;p&gt;图写禽兽 画彩仙灵 丙舍傍启 甲帐对楹 肆筵设席 鼓瑟吹笙 　&lt;/p&gt;
+
+&lt;p&gt;升阶纳陛 弁转疑星 右通广内 左达承明 既集坟典 亦聚群英 　&lt;/p&gt;
+
+&lt;p&gt;杜稿钟隶 漆书壁经 府罗将相 路侠槐卿 户封八县 家给千兵 　&lt;/p&gt;
+
+&lt;p&gt;高冠陪辇 驱毂振缨 世禄侈富 车驾肥轻 策功茂实 勒碑刻铭 　&lt;/p&gt;
+
+&lt;p&gt;番溪伊尹 佐时阿衡 奄宅曲阜 微旦孰营 桓公匡合 济弱扶倾 　&lt;/p&gt;
+
+&lt;p&gt;绮回汉惠 说感武丁 俊义密勿 多士实宁 晋楚更霸 赵魏困横 　&lt;/p&gt;
+
+&lt;p&gt;假途灭虢 践土会盟 何遵约法 韩弊烦刑 起翦颇牧 用军最精 　&lt;/p&gt;
+
+&lt;p&gt;宣威沙漠 驰誉丹青 九州禹迹 百郡秦并 岳宗泰岱 禅主云亭 　&lt;/p&gt;
+
+&lt;p&gt;雁门紫塞 鸡田赤城 昆池碣石 巨野洞庭 旷远绵邈 岩岫杳冥 　&lt;/p&gt;
+
+&lt;p&gt;治本于农 务兹稼穑 叔载南亩 我艺黍稷 税熟贡新 劝赏黜陟 　&lt;/p&gt;
+
+&lt;p&gt;孟轲敦素 史鱼秉直 庶几中庸 劳谦谨敕 聆音察理 鉴貌辨色 　&lt;/p&gt;
+
+&lt;p&gt;贻厥嘉猷 勉其祗植 省躬讥诫 宠增抗极 殆辱近耻 林皋幸即 　&lt;/p&gt;
+
+&lt;p&gt;两疏见机 解组谁逼 索居闲处 沉默寂寥 求古寻论 散虑逍遥 　&lt;/p&gt;
+
+&lt;p&gt;欣奏累遣 戚谢欢招 渠荷的历 园莽抽条 枇杷晚翠 梧桐蚤凋 　&lt;/p&gt;
+
+&lt;p&gt;陈根委翳 落叶飘摇 游昆独运 凌摩绛霄 耽读玩市 寓目囊箱 　&lt;/p&gt;
+
+&lt;p&gt;易酋攸畏 属耳垣墙 具膳餐饭 适口充肠 饱饫烹宰 饥厌糟糠 　&lt;/p&gt;
+
+&lt;p&gt;亲戚故旧 老少异粮 妾御绩纺 侍巾帷房 纨扇圆洁 银烛炜煌 　&lt;/p&gt;
+
+&lt;p&gt;昼眠夕寐 蓝笋象床 弦歌酒宴 接杯举觞 矫手顿足 悦豫且康 　&lt;/p&gt;
+
+&lt;p&gt;嫡后嗣续 祭祀蒸尝 稽颡再拜 悚惧恐惶 笺牒简要 顾答审详 　&lt;/p&gt;
+
+&lt;p&gt;骸垢想浴 执热愿凉 驴骡犊特 骇跃超骧 诛斩贼盗 捕获叛亡 　&lt;/p&gt;
+
+&lt;p&gt;布射僚丸 嵇琴阮啸 恬笔伦纸 钧巧任钓 释纷利俗 并皆佳妙 　&lt;/p&gt;
+
+&lt;p&gt;毛施淑姿 工颦妍笑 年矢每催 曦晖朗曜 璇玑悬斡 晦魄环照 　&lt;/p&gt;
+
+&lt;p&gt;指薪修祜 永绥吉劭 矩步引领 俯仰廊庙 束带矜庄 徘徊瞻眺 　&lt;/p&gt;
+
+&lt;p&gt;孤陋寡闻 愚蒙等诮 谓语助者 焉哉乎也 &amp;nbsp;&amp;nbsp;
+&lt;/center&gt;&lt;/p&gt;
 </description>
     </item>
     

@@ -57,7 +57,7 @@
     "datePublished": "2019-08-14 10:58:21 \x2b0800 CST",
     "dateModified" : "2019-08-14 10:58:21 \x2b0800 CST",
     "url" : "https:\/\/darknoll.github.io\/2019\/001\/",
-    "wordCount" : "476",
+    "wordCount" : "3434",
     "keywords" : [ "跨域", "Darknoll`s Blog"]
 }
 </script>
@@ -134,6 +134,8 @@
         
 
         
+            
+        
 
         
         
@@ -148,25 +150,19 @@
 
           
 
-<h3 id="web前端中最常见的两种安全风险-xss与csrf-xss-即跨站脚本攻击-csrf即跨站请求伪造-两者属于跨域安全攻击-对于常见的xss以及csrf在此不多谈论-仅谈论一些不太常见的跨域技术以及安全威胁">WEB前端中最常见的两种安全风险，XSS与CSRF，XSS，即跨站脚本攻击、CSRF即跨站请求伪造,两者属于跨域安全攻击，对于常见的XSS以及CSRF在此不多谈论，仅谈论一些不太常见的跨域技术以及安全威胁</h3>
+<p><strong>WEB前端中最常见的两种安全风险，XSS与CSRF，XSS，即跨站脚本攻击、CSRF即跨站请求伪造,两者属于跨域安全攻击，对于常见的XSS以及CSRF在此不多谈论，仅谈论一些不太常见的跨域技术以及安全威胁。</strong></p>
 
-<ul>
-<li>域</li>
-</ul>
+<h2 id="一-域">一、 域</h2>
 
 <p>域，即域名对应的网站。不同的域名对应的不同的网站，相同的域名不同的端口也对应的不同的网站，因此，域，从字面意思以及实质意思都为空间，所以在web中空间即代表的是网站。</p>
 
-<ul>
-<li><p>同源策略（SOP）</p>
+<h2 id="二-同源策略-sop">二、同源策略（SOP）</h2>
 
-<ul>
-<li>同源策略定义
-<br /></li>
-</ul>
+<h3 id="2-1-同源策略定义">2.1 同源策略定义</h3>
 
-<p>同源策略限制了从同一个源加载的文档或脚本如何与来自另一个源的资源进行交互。这是一个用于隔离潜在恶意文件的重要安全机制。
-同源策略必须要同时满足以下三个条件，只要有任何一个不同，都被当作是不同的域：</p></li>
-</ul>
+<p>同源策略限制了从同一个源加载的文档或脚本如何与来自另一个源的资源进行交互。这是一个用于隔离潜在恶意文件的重要安全机制。</p>
+
+<p>同源策略必须要同时满足以下三个条件，只要有任何一个不同，都被当作是不同的域：</p>
 
 <blockquote>
 <ol>
@@ -176,21 +172,279 @@
 </ol>
 </blockquote>
 
-<pre><code>举例说明：
+<p>举例说明：</p>
 
-| 协议 | 域名 | 端口 | 是否同源 | 原因 |
-| ---------- | --- | --- | --- | --- |
-| http | www.a.com | 80 | ||
-| http | www.b.com | 80 | 否 | 域名不同 |
-| https | www.a.com | 80 | 否 | 协议不同 |
-| http | www.a.com | 8080 | 否 | 端口不同 |
-&lt;/br&gt;
+<table>
+<thead>
+<tr>
+<th align="left">协议</th>
+<th align="left">域名</th>
+<th align="left">端口</th>
+<th align="left">是否同源</th>
+<th align="left">原因</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">http</td>
+<td align="left"><a href="http://www.a.com/" rel="nofollow noreferrer" target="_blank">www.a.com</a></td>
+<td align="left">80</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+
+<tr>
+<td align="left">http</td>
+<td align="left"><a href="http://www.b.com/" rel="nofollow noreferrer" target="_blank">www.b.com</a></td>
+<td align="left">80</td>
+<td align="left">否</td>
+<td align="left">域名不同</td>
+</tr>
+
+<tr>
+<td align="left">https</td>
+<td align="left"><a href="http://www.a.com/" rel="nofollow noreferrer" target="_blank">www.a.com</a></td>
+<td align="left">80</td>
+<td align="left">否</td>
+<td align="left">协议不同</td>
+</tr>
+
+<tr>
+<td align="left">http</td>
+<td align="left"><a href="http://www.a.com/" rel="nofollow noreferrer" target="_blank">www.a.com</a></td>
+<td align="left">8080</td>
+<td align="left">否</td>
+<td align="left">端口不同</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="2-2-同源策略限制">2.2 同源策略限制</h3>
+
+<p>同源策略限制了只有同源的脚本才会被执行，当打开一个网站的时候，会首先检查是否同源，如果非同源，在请求数据的时候，浏览器就会进行拦截报异常，拒绝访问。</p>
+
+<h2 id="三-跨域本质">三、跨域本质</h2>
+
+<p>跨域本质就是绕过同源策略的严格限制，安全与实用往往有时候会有一定的矛盾性，开发人员更注重的是功能的开发使用，例如有时候同二级域名下的不同三级域名需要进行一些信息数据传输时，共享一些资源时，同源策略将其限制，但是又要实现该功能，此时就诞生了一些跨越请求的技术。</p>
+
+<h2 id="四-跨域技术">四、跨域技术</h2>
+
+<p>本文将介绍较大范围的跨域，即从一个域到另一个域都将其归为跨域。因此，将其归结为两种情况：</p>
+
+<ol>
+<li><p>跨域请求</p></li>
+
+<li><p>跨域跳转</p></li>
+</ol>
+
+<h2 id="五-跨域威胁">五、跨域威胁</h2>
+
+<h3 id="5-1-jsonp跨域">5.1 JSONP跨域</h3>
+
+<p>5.1.1 jsonp跨域原理</p>
+
+<p>利用<code>&lt;script&gt;</code>标签没有跨域限制的漏洞，网页可以从其他来源域动态获取json数据，jsonp跨域请求一定需要对方的服务器支持才可以。</p>
+
+<p>5.1.2 jsonp实现流程</p>
+
+<blockquote>
+<ol>
+<li><p>服务端必须支持jsonp，且拥有jsonp跨域接口（前提）</p></li>
+
+<li><p>浏览器客户端声明一个回调函数，其函数名作为参数值，要传递给跨域请求数据的服务器，函数形参为要获取到的返回目标数据</p></li>
+
+<li><p>创建一个<code>&lt;script&gt;</code>标签，把跨域的API数据接口加载到src属性，并且在这个地址向服务器传递该回调函数名</p></li>
+
+<li><p>服务器会将数据返回到浏览器客户端，此时客户端会调用回调函数，对返回的数据进行处理</p></li>
+</ol>
+</blockquote>
+
+<p>5.1.3 jsonp代码实战</p>
+
+<pre><code class="language-php">&lt;?php
+error_reporting(0);
+$callback = $_GET['callback'];
+echo $callback.&quot;({'id':1,'name':'missfresh'})&quot;
+?&gt;
 </code></pre>
 
-<ul>
-<li><p>同源策略限制</p>
+<p>以上即为一个简单的jsonp的服务端接口，假设该接口是一个获取用户的个人信息的接口，那么此时只要请求该接口，每个用户就获取到自己该有的个人信息，</p>
 
-<p>同源策略限制了只有同源的脚本才会被执行，当打开一个网站的时候，会首先检查是否同源，如果非同源，在请求数据的时候，浏览器就会进行拦截报异常，拒绝访问。</p></li>
+<p>为了更加符合通常的开发实际情况，一般用户获取个人信息流程：</p>
+
+<p>登陆-&gt;服务器验证-&gt;session-&gt;通过session判断用户-&gt;个人信息</p>
+
+<p>5.1.4 JSONP安全威胁</p>
+
+<p>JSONP威胁点通常有两个：</p>
+
+<blockquote>
+<ol>
+<li><p>对于输入的callback函数名过滤不严格，导致输入的数据直接输出到前端造成XSS</p></li>
+
+<li><p>JSONP劫持漏洞，由于对于来源域没有严格限制，因此来源于不安全的域的请求也会被响应</p></li>
+</ol>
+</blockquote>
+
+<h3 id="5-2-cors跨域">5.2 CORS跨域</h3>
+
+<p>5.2.1 CORS跨域原理</p>
+
+<p>CORS（Cross Origin Resource Sharing），跨域资源共享，为了弥补JSONP等跨域常见技术的缺陷，而提出的安全方便的跨域方案。它允许浏览器想跨域服务器，发出XMLHttpRequest请求，从而克服AJAX只能同源使用的限制。</p>
+
+<p>CORS需要浏览器和服务器同时支持，相比JSONP更加复杂，但是一般目前的浏览器都是支持的，服务器只需要进行相应配置，其通信过程都是浏览器自动完成，对于开发人员来说，跟写AJAX的代码没有区别，只是会在发送跨域请求时在HTTP请求头中添加一些字段来验证，关键字段如下:</p>
+
+<blockquote>
+<ol>
+<li><p>Access-Control-Allow-Origin：指定哪些域可以访问域资源。例如，如果requester.com想要访问provider.com的资源，那么开发人员可以使用此标头安全地授予requester.com对provider.com资源的访问权限。</p></li>
+
+<li><p>Access-Control-Allow-Credentials：指定浏览器是否将使用请求发送cookie。仅当allow-credentials标头设置为true时，才会发送Cookie。</p></li>
+
+<li><p>Access-Control-Allow-Methods：指定可以使用哪些HTTP请求方法（GET，PUT，DELETE等）来访问资源。此标头允许开发人员通过在requester.com请求访问provider.com的资源时，指定哪些方法有效来进一步增强安全性。</p></li>
+</ol>
+</blockquote>
+
+<p>5.2.2 CORS实现流程</p>
+
+<blockquote>
+<ol>
+<li><p>服务器配置支持CORS，默认认可所有域都可以访问</p></li>
+
+<li><p>浏览器客户端把所在的域填充到Origin发送跨域请求</p></li>
+
+<li><p>服务器根据资源权限配置，在响应头中添加ccess-Control-Allow-Origin Header，返回结果</p></li>
+
+<li><p>浏览器比较服务器返回的Access-Control-Allow-Origin Header和请求域的Origin，如果当前域获得授权，则将结果返回给页面</p></li>
+</ol>
+</blockquote>
+
+<p>5.2.3 CORS安全威胁</p>
+
+<p>CORS一般最常见的安全威胁就是CORS错误配置导致资源信息泄漏，与JSONP劫持基本上一致。</p>
+
+<p><strong>漏洞原理</strong>：通常开发人员使用CORS一般默认允许来自所有域或者由于错误的正则匹配方式造成绕过规定的白名单域</p>
+
+<p>1、CORS漏洞利用前提</p>
+
+<p>（1）有用户凭证的</p>
+
+<p><a href="https://sec-soc-1255613256.cos.ap-beijing.myqcloud.com/image/6d6b17e73a6842e089d79d62c1aa5fbf.png" rel="nofollow noreferrer" target="_blank"><figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://sec-soc-1255613256.cos.ap-beijing.myqcloud.com/image/6d6b17e73a6842e089d79d62c1aa5fbf.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></a></p>
+
+<p>（2）无用户凭证的</p>
+
+<p><a href="https://sec-soc-1255613256.cos.ap-beijing.myqcloud.com/image/c428865faaa74d249acff74d93c6efec.png" rel="nofollow noreferrer" target="_blank"><figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://sec-soc-1255613256.cos.ap-beijing.myqcloud.com/image/c428865faaa74d249acff74d93c6efec.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></a></p>
+
+<p>2、实际案例</p>
+
+<p>以一加官网为例</p>
+
+<p>登陆后，访问个人信息，然后利用burpsuite抓包，修改origin的域，发现任意域都可以被服务器接受</p>
+
+<p><a href="https://sec-soc-1255613256.cos.ap-beijing.myqcloud.com/image/be160ad42d2243dfbf342d2f91d9afbd.png" rel="nofollow noreferrer" target="_blank"><figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://sec-soc-1255613256.cos.ap-beijing.myqcloud.com/image/be160ad42d2243dfbf342d2f91d9afbd.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></a></p>
+
+<p>构造exp：</p>
+
+<p><a href="https://sec-soc-1255613256.cos.ap-beijing.myqcloud.com/image/086167da01094cb9803fb97f7ff977e7.png" rel="nofollow noreferrer" target="_blank"><figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://sec-soc-1255613256.cos.ap-beijing.myqcloud.com/image/086167da01094cb9803fb97f7ff977e7.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></a></p>
+
+<p>成功利用该exp：</p>
+
+<p><a href="https://sec-soc-1255613256.cos.ap-beijing.myqcloud.com/image/7d91ca4d2e5d42019002407452139f9d.png" rel="nofollow noreferrer" target="_blank"><figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://sec-soc-1255613256.cos.ap-beijing.myqcloud.com/image/7d91ca4d2e5d42019002407452139f9d.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></a></p>
+
+<h3 id="5-3-postmessage跨域">5.3 PostMessage跨域</h3>
+
+<p>5.3.1 PostMessage跨域原理</p>
+
+<p>PostMeaage是H5新引入的实现跨域窗口之间的通讯，可以安全地实现windows对象之间的跨域通信</p>
+
+<p>PostMessage主要依靠Window.postMessage方法，该方法有三个参数</p>
+
+<blockquote>
+<ol>
+<li><p>message：发送到其他窗口的数据</p></li>
+
+<li><p>targetOrigin：接受数据消息的目标窗口,当该值为星号（* ）表示任意一个域都可以接受消息</p></li>
+
+<li><p>transfer： 可选项，代表纤细的所有权</p></li>
+</ol>
+</blockquote>
+
+<p>除了发送之外，必然有一个接受消息的窗口，一般用window.addEventListener(“message”,receiveMessage.false),用以接受消息数据</p>
+
+<p>5.3.2 PostMessage实现流程</p>
+
+<blockquote>
+<ol>
+<li><p>创建一个页面A，定义一个Postmessage方法</p></li>
+
+<li><p>创建一个页面B，定义一个window.addEventListener(“message”，function）方法接受来源于Postmessage方法的消息</p></li>
+
+<li><p>页面A使用Iframe标签包含页面B，触发Postmessage方法即可</p></li>
+</ol>
+</blockquote>
+
+<p><a href="https://sec-soc-1255613256.cos.ap-beijing.myqcloud.com/image/bcdd2b37ad704ae2ad5b457c5e70c3c7.jpg" rel="nofollow noreferrer" target="_blank"><figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://sec-soc-1255613256.cos.ap-beijing.myqcloud.com/image/bcdd2b37ad704ae2ad5b457c5e70c3c7.jpg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></a></p>
+
+<p>5.3.3 PostMessage安全威胁</p>
+
+<p>PostMessage跨越一般威胁点在于对于目标域限制不严格导致的，大多数开发人员由于对于postmessage防范中targetOrigin参数默认为* ，因此只要包含了该方法页面，构造利用代码，就能够获取到敏感信息。</p>
+
+<p>1、漏洞利用前提</p>
+
+<blockquote>
+<ol>
+<li><p>页面存在点击劫持</p></li>
+
+<li><p>postmessage函数中的targetOrigin默认为* 或者targetOrigi对应的域不安全</p></li>
+</ol>
+</blockquote>
+
+<p>2、实际案例</p>
+
+<p>（1）构造xss</p>
+
+<p>可以看到构造恶意xss，发送给目标域，就可以获取到目标域的cookie</p>
+
+<p><a href="https://sec-soc-1255613256.cos.ap-beijing.myqcloud.com/image/e36925bbcaed47bd9d0e0ff04c131511.png" rel="nofollow noreferrer" target="_blank"><figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://sec-soc-1255613256.cos.ap-beijing.myqcloud.com/image/e36925bbcaed47bd9d0e0ff04c131511.png" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></a></p>
+
+<p>（2）窗口劫持</p>
+
+<p>窗口劫持则主要针对发送消息的域，劫持该消息</p>
+
+<p><a href="https://sec-soc-1255613256.cos.ap-beijing.myqcloud.com/image/1567d57dda4b495793d81a7388163b75.jpeg" rel="nofollow noreferrer" target="_blank"><figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://sec-soc-1255613256.cos.ap-beijing.myqcloud.com/image/1567d57dda4b495793d81a7388163b75.jpeg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></a></p>
+
+<p><a href="https://sec-soc-1255613256.cos.ap-beijing.myqcloud.com/image/c3fee14734e142578b25db78253940e7.jpeg" rel="nofollow noreferrer" target="_blank"><figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://sec-soc-1255613256.cos.ap-beijing.myqcloud.com/image/c3fee14734e142578b25db78253940e7.jpeg" alt="" class="lazyload"><figcaption class="image-caption"></figcaption></figure></a></p>
+
+<h2 id="六-跨域安全场景">六、跨域安全场景</h2>
+
+<p>业务场景跨域场景主要有以下两个场景</p>
+
+<blockquote>
+<ol>
+<li><p>共享个人信息数据</p></li>
+
+<li><p>共享cookie数据</p></li>
+</ol>
+</blockquote>
+
+<h3 id="6-1-共享cookie数据">6.1 共享cookie数据</h3>
+
+<p>目前常见的一种形式，就是统一登陆，所有的大型企业，基本上都采用这种方式，登陆验证后会在所有的该企业其他同三级域中授权，因此一旦某个域出现安全威胁后，就可能窃取到用户的cookie信息，就可以利用该用户的cookie信息伪装用户操作</p>
+
+<h3 id="6-2-共享个人信息数据">6.2 共享个人信息数据</h3>
+
+<p>有些时候，可能不存在类似xss这类漏洞，直接获取到用户的cookie信息，但是为了数据在资产域中交换，常常利用jsonp、cors技术，但是会存在配置错误就导致，默认所有域可访问、正则被绕过，引入的某个JS资源该服务器不安全等因素，导致数据被劫持</p>
+
+<h2 id="七-跨域安全方案">七、跨域安全方案</h2>
+
+<ul>
+<li><p>对于跨域的安全域，要严格控制信任域，禁止配置默认所有域的情况，对于限制的正则表达式要严格测试通过</p></li>
+
+<li><p>对于引入的JS等执行脚本，需要保证来源的安全性，避免来源服务器本身的不安全威胁</p></li>
+
+<li><p>对于边缘业务子域，要控制其可信度，避免从边缘业务的漏洞影响核心业务</p></li>
+
+<li><p>对于非归属业务，禁止子域分配给其他归属，避免第三方不遵守安全，存在漏洞风险，造成对归属业务的影响</p></li>
 </ul>
 
     </div>
@@ -294,8 +548,9 @@
 
 
     
-    
-    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+     <link href="//lib.baomitu.com/lightgallery/1.6.11/css/lightgallery.min.css" rel="stylesheet">  
+      
+     <script src="/js/vendor_gallery.min.js" async="" ></script>
     
   
 
