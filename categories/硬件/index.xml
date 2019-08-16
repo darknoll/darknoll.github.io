@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on Darknoll`s Blog</title>
-    <link>https://darknoll.github.io/posts/</link>
-    <description>Recent content in Posts on Darknoll`s Blog</description>
+    <title>硬件 on Darknoll`s Blog</title>
+    <link>https://darknoll.github.io/categories/%E7%A1%AC%E4%BB%B6/</link>
+    <description>Recent content in 硬件 on Darknoll`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Fri, 16 Aug 2019 15:16:31 +0800</lastBuildDate>
     
-	<atom:link href="https://darknoll.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://darknoll.github.io/categories/%E7%A1%AC%E4%BB%B6/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -18,15 +18,6 @@
       
       <guid>https://darknoll.github.io/2019/002/</guid>
       <description>根据需求有限考虑硬盘数 对于大部分人来说，购买NAS的需求大致都可以归纳为两个场景：家用和小型办公。他们的出发点一般都是这样的： 对价格相对敏感</description>
-    </item>
-    
-    <item>
-      <title>浅谈跨域威胁与安全</title>
-      <link>https://darknoll.github.io/2019/001/</link>
-      <pubDate>Wed, 14 Aug 2019 10:58:21 +0800</pubDate>
-      
-      <guid>https://darknoll.github.io/2019/001/</guid>
-      <description>WEB前端中最常见的两种安全风险，XSS与CSRF，XSS，即跨站脚本攻击、CSRF即跨站请求伪造,两者属于跨域安全攻击，对于常见的XSS以</description>
     </item>
     
   </channel>
