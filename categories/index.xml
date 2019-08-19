@@ -6,10 +6,19 @@
     <description>Recent content in Categories on Darknoll`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 16 Aug 2019 15:16:31 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 19 Aug 2019 14:30:21 +0800</lastBuildDate>
     
 	<atom:link href="https://darknoll.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Caxa</title>
+      <link>https://darknoll.github.io/categories/caxa/</link>
+      <pubDate>Mon, 19 Aug 2019 14:30:21 +0800</pubDate>
+      
+      <guid>https://darknoll.github.io/categories/caxa/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>硬件</title>

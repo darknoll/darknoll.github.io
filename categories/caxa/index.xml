@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Caxa on Darknoll`s Blog</title>
+    <link>https://darknoll.github.io/categories/caxa/</link>
+    <description>Recent content in Caxa on Darknoll`s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Mon, 19 Aug 2019 14:30:21 +0800</lastBuildDate>
+    
+	<atom:link href="https://darknoll.github.io/categories/caxa/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>用户工具箱（PlmUserToolBox.exe）使用说明</title>
+      <link>https://darknoll.github.io/2019/003/</link>
+      <pubDate>Mon, 19 Aug 2019 14:30:21 +0800</pubDate>
+      
+      <guid>https://darknoll.github.io/2019/003/</guid>
+      <description>工具简介 该工具主要用于以下用途： 元模型类/关系/行为属性的增加/修改/删除 对象查看器中属性的增加/修改/删除 数据库表中新增字段的添加 设置工具</description>
+    </item>
+    
+  </channel>
+</rss>
