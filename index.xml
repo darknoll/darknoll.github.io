@@ -5,8 +5,77 @@
     <description>Recent content in Darknoll`s Blog on Darknoll`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 19 Aug 2019 14:30:21 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 20 Aug 2019 15:23:34 +0800</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>ssh禁止root用户直接登录并修改默认端口</title>
+      <link>https://darknoll.github.io/2019/004/</link>
+      <pubDate>Tue, 20 Aug 2019 15:23:34 +0800</pubDate>
+      
+      <guid>https://darknoll.github.io/2019/004/</guid>
+      <description>
+
+&lt;p&gt;&lt;strong&gt;Linux最高权限用户root，默认可以直接登录sshd，为了提高服务器的安全性，需要对它进行禁止，使得攻击者无法通过暴力破解来获取root权限&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;新建用户&#34;&gt;新建用户&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;新建一个用户：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;useradd ***（***为你所要新建的用户名）
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;为新用户设置密码：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;passwd ***（***为你要新建用户名的密码）
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;修改sshd配置，禁止root直接登录：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;#vim /etc/ssh/sshd_config -&amp;gt; PermitRootLogin -&amp;gt; no
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;修改完毕后，重启sshd服务：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;#service sshd restart
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;下次登录，先使用***登录，然后通过&lt;code&gt;su root&lt;/code&gt;来获取root权限。&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&#34;修改sshd默认端口&#34;&gt;修改sshd默认端口&lt;/h3&gt;
+
+&lt;p&gt;虽然更改端口无法在根本上抵御端口扫描，但是，可以在一定程度上提高防御。&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;打开sshd配置文件：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;#vim /etc/ssh/sshd_config
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;找到&lt;code&gt;#Port 22&lt;/code&gt;字段，删掉&lt;code&gt;#&lt;/code&gt;，将22改为其他大的端口号。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;重启sshd服务：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;#service sshd restart
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;同时修改登录工具的端口号。&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&#34;只允许用户从指定的ip登录&#34;&gt;只允许用户从指定的IP登录&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;编辑ssh的配置文件&lt;code&gt;/etc/ssh/sshd_config&lt;/code&gt;，在文件的最后面另起一行添加：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;AllowUsers root@***.***.***.***
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;保存并退出，再重启一下ssh服务。&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
     
     <item>
       <title>用户工具箱（PlmUserToolBox.exe）使用说明</title>
