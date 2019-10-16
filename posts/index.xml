@@ -6,10 +6,19 @@
     <description>Recent content in Posts on Darknoll`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 20 Aug 2019 15:23:34 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 16 Oct 2019 10:01:22 +0800</lastBuildDate>
     
 	<atom:link href="https://darknoll.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>制造看板安装说明</title>
+      <link>https://darknoll.github.io/2019/005/</link>
+      <pubDate>Wed, 16 Oct 2019 10:01:22 +0800</pubDate>
+      
+      <guid>https://darknoll.github.io/2019/005/</guid>
+      <description>安装步骤 安装完整IIS。不同版本电脑安装方法不同，可分别从网上搜索。由于看板产品基于asp.net开发，确保在安装时选择应用程序开发功能中.</description>
+    </item>
     
     <item>
       <title>ssh禁止root用户直接登录并修改默认端口</title>

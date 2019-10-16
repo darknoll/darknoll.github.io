@@ -6,10 +6,19 @@
     <description>Recent content in Categories on Darknoll`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 20 Aug 2019 15:23:34 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 16 Oct 2019 10:01:22 +0800</lastBuildDate>
     
 	<atom:link href="https://darknoll.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Caxa</title>
+      <link>https://darknoll.github.io/categories/caxa/</link>
+      <pubDate>Wed, 16 Oct 2019 10:01:22 +0800</pubDate>
+      
+      <guid>https://darknoll.github.io/categories/caxa/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Linux</title>
@@ -17,15 +26,6 @@
       <pubDate>Tue, 20 Aug 2019 15:23:34 +0800</pubDate>
       
       <guid>https://darknoll.github.io/categories/linux/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Caxa</title>
-      <link>https://darknoll.github.io/categories/caxa/</link>
-      <pubDate>Mon, 19 Aug 2019 14:30:21 +0800</pubDate>
-      
-      <guid>https://darknoll.github.io/categories/caxa/</guid>
       <description></description>
     </item>
     
