@@ -104,7 +104,7 @@
 
 &lt;p&gt;假设应用是图文档，那么设置如下图所示：&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://pw9fe4at4.bkt.clouddn.com/%E7%94%A8%E6%88%B7%E5%B7%A5%E5%85%B7%E7%AE%B1-%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%8F%82%E6%95%B0.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://darknoll.oss-cn-shanghai.aliyuncs.com/caxavault/plmtools_pics/1.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&#34;登录&#34;&gt;登录&lt;/h3&gt;
 
@@ -120,7 +120,7 @@
 
 &lt;p&gt;&lt;strong&gt;注意：&lt;/strong&gt;导入的已有修改是一个名为.rar的压缩包，该压缩包是通过工具的导出功能得到的，具有一定的格式，如果使用自己手动新建的压缩包，可能无法导入元模型和对象查看器文件。&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://pw9fe4at4.bkt.clouddn.com/%E7%94%A8%E6%88%B7%E5%B7%A5%E5%85%B7%E7%AE%B1-%E5%AF%BC%E5%85%A5.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://darknoll.oss-cn-shanghai.aliyuncs.com/caxavault/plmtools_pics/2.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&#34;元模型属性修改&#34;&gt;元模型属性修改&lt;/h3&gt;
 
@@ -128,27 +128,27 @@
 
 &lt;p&gt;点击下面一排按钮中的&lt;code&gt;新增&lt;/code&gt;，在弹出的对话框中填入新属性的&lt;code&gt;内部名&lt;/code&gt;、&lt;code&gt;外部名&lt;/code&gt;等信息，完成后点击&lt;code&gt;保存&lt;/code&gt;。&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://pw9fe4at4.bkt.clouddn.com/%E7%94%A8%E6%88%B7%E5%B7%A5%E5%85%B7%E7%AE%B1-%E5%A2%9E%E5%8A%A0%E5%B1%9E%E6%80%A7.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://darknoll.oss-cn-shanghai.aliyuncs.com/caxavault/plmtools_pics/3.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;操作成功后，下方的&lt;code&gt;输出信息&lt;/code&gt;中会显示对应的消息提示。&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://pw9fe4at4.bkt.clouddn.com/%E7%94%A8%E6%88%B7%E5%B7%A5%E5%85%B7%E7%AE%B1-%E8%BE%93%E5%87%BA%E4%BF%A1%E6%81%AF.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://darknoll.oss-cn-shanghai.aliyuncs.com/caxavault/plmtools_pics/4.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&#34;对象查看器属性修改&#34;&gt;对象查看器属性修改&lt;/h3&gt;
 
 &lt;p&gt;元模型属性改好后，可以修改对象查看器属性，切换左侧的&lt;code&gt;元模型定义树&lt;/code&gt;至&lt;code&gt;对象查看器定义树&lt;/code&gt;，我们现在需要将零部件新增的属性&lt;code&gt;Test&lt;/code&gt;在图文档零部件查看器中显示出来，选中&lt;code&gt;零部件&lt;/code&gt;下的&lt;code&gt;零部件属性查看器&lt;/code&gt;，依次点击&lt;code&gt;编辑&lt;/code&gt;、&lt;code&gt;新增属性&lt;/code&gt;，在弹出的新增属性对话框中，将&lt;code&gt;Test&lt;/code&gt;这一行前面的选框勾上，点击&lt;code&gt;确定&lt;/code&gt;。&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://pw9fe4at4.bkt.clouddn.com/%E7%94%A8%E6%88%B7%E5%B7%A5%E5%85%B7%E7%AE%B1-%E5%AF%B9%E8%B1%A1%E6%9F%A5%E7%9C%8B%E5%99%A8%E5%B1%9E%E6%80%A7%E5%A2%9E%E5%8A%A0.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://darknoll.oss-cn-shanghai.aliyuncs.com/caxavault/plmtools_pics/5.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;如果没有问题的话，会在界面中看到该属性已经增加到对象查看器文件中，点击&lt;code&gt;保存&lt;/code&gt;即可，&lt;code&gt;输出信息&lt;/code&gt;同样会显示操作内容。&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://pw9fe4at4.bkt.clouddn.com/%E7%94%A8%E6%88%B7%E5%B7%A5%E5%85%B7%E7%AE%B1-%E5%B1%9E%E6%80%A7%E4%BF%9D%E5%AD%98.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://darknoll.oss-cn-shanghai.aliyuncs.com/caxavault/plmtools_pics/6.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&#34;映射数据库&#34;&gt;映射数据库&lt;/h3&gt;
 
 &lt;p&gt;完成元模型和对象查看器修改之后，需要将新增的属性映射到对应的数据库表中，此时点击菜单栏中的&lt;code&gt;更新数据库&lt;/code&gt;，会弹出需要映射的字段信息：&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://pw9fe4at4.bkt.clouddn.com/%E7%94%A8%E6%88%B7%E5%B7%A5%E5%85%B7%E7%AE%B1-%E6%9B%B4%E6%96%B0%E6%95%B0%E6%8D%AE%E5%BA%93.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://darknoll.oss-cn-shanghai.aliyuncs.com/caxavault/plmtools_pics/7.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;点击&lt;code&gt;开始更新&lt;/code&gt;，会自动连接数据库进行更新操作。&lt;/p&gt;
 
@@ -156,7 +156,7 @@
 
 &lt;p&gt;完成了元模型修改-&amp;gt;对象查看器修改-&amp;gt;映射数据库等操作之后，需要将修改的元模型文件和对象查看器文件上传到模板库供其他客户端下载使用。点击工具栏的&lt;code&gt;上传模板库&lt;/code&gt;按钮，会分别列出已修改的元模型文件和对象查看器文件，点击&lt;code&gt;上传&lt;/code&gt;会将文件上传至模板库。&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://pw9fe4at4.bkt.clouddn.com/%E7%94%A8%E6%88%B7%E5%B7%A5%E5%85%B7%E7%AE%B1-%E4%B8%8A%E4%BC%A0%E6%A8%A1%E6%9D%BF%E5%BA%93.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://darknoll.oss-cn-shanghai.aliyuncs.com/caxavault/plmtools_pics/8.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&#34;重启服务&#34;&gt;重启服务&lt;/h3&gt;
 
@@ -168,6 +168,13 @@
 &lt;li&gt;导出修改记录：可以将修改记录以txt格式的文本导出，便于查看自己进行过哪些操作。&lt;/li&gt;
 &lt;li&gt;导出修改文件：会以压缩包的格式将已修改的元模型文件和对象查看器文件打包，便于在其他机器上继续操作。&lt;/li&gt;
 &lt;li&gt;导入修改文件：可以继续在其他机器上未完成的修改。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;相关文件下载&#34;&gt;相关文件下载&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://darknoll.oss-cn-shanghai.aliyuncs.com/caxavault/%E7%94%A8%E6%88%B7%E5%B7%A5%E5%85%B7%E7%AE%B1%EF%BC%88PlmUserToolBox.exe%EF%BC%89%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E.pdf&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;用户工具箱（PlmUserToolBox.exe）使用说明.pdf&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://darknoll.oss-cn-shanghai.aliyuncs.com/caxavault/plmtools2019.rar&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;plmtools_2019sp1&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>
