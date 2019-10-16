@@ -158,22 +158,22 @@
 <li><p>安装CAXA WebBoard(图文档<strong>版本位数</strong>).exe。</p></li>
 
 <li><p>安装完成后，先看看服务器的数据库，在数据库PLM的可编程性、存储过程中是否有。确保sql执行过。(有些电脑由于环境变量有问题，没法执行安装盘里面的sql。或者把目录下的所有每一个sql都拖进数据库中执行一遍，结果提示错误不用管。其他项目添加的sql，没有时间整理)
-<figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://darknoll.oss-cn-shanghai.aliyuncs.com/caxavault/board_pics/11.png" alt="安装时需要执行的sql" class="lazyload"><figcaption class="image-caption">安装时需要执行的sql</figcaption></figure></p></li>
+<figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://150.136.142.90:9090/caxavault/board_pics/11.png" alt="安装时需要执行的sql" class="lazyload"><figcaption class="image-caption">安装时需要执行的sql</figcaption></figure></p></li>
 </ul>
 
-<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://darknoll.oss-cn-shanghai.aliyuncs.com/caxavault/board_pics/12.png" alt="数据库中应有的存储过程" class="lazyload"><figcaption class="image-caption">数据库中应有的存储过程</figcaption></figure></p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://150.136.142.90:9090/caxavault/board_pics/12.png" alt="数据库中应有的存储过程" class="lazyload"><figcaption class="image-caption">数据库中应有的存储过程</figcaption></figure></p>
 
 <ul>
 <li>设置<code>授权锁</code>，步骤打开C:\Program Files\caxa\CAXA WebBoard\lib\server目录下的e4ncli.ini,修改ip地址为授权地址，不知道的话问经理。然后安装服务、启动服务、运行LicInfoService.exe。查看C:\Program Files\caxa\CAXA WebBoard\FileCache目录下的lic.xml是否发生变化，如果value值11551后面跟的不是0，那就是成功了。否则授权没有成功。</li>
 
-<li><p>如果电脑是64位，安装的是32位的图文档，需要修改是否启用32位应用程序为true。<figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://darknoll.oss-cn-shanghai.aliyuncs.com/caxavault/board_pics/13.png" alt="IIS应用程序池" class="lazyload"><figcaption class="image-caption">IIS应用程序池</figcaption></figure></p></li>
+<li><p>如果电脑是64位，安装的是32位的图文档，需要修改是否启用32位应用程序为true。<figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://150.136.142.90:9090/caxavault/board_pics/13.png" alt="IIS应用程序池" class="lazyload"><figcaption class="image-caption">IIS应用程序池</figcaption></figure></p></li>
 
 <li><p>测试看板是否正确安装，注意，看板使用时客户端<strong>只支持ie</strong>。如果报错为500.21 internal server error 或者400.17，需要<strong>重装iis</strong>，在cmd命令行中执行aspnet_regiis -i。如果报错为server error in / application could not write to output file 拒绝访问，需要修改文件夹c:\windows\temp的 iisusers<strong>权限</strong>，可从网上获取详细资料。如果登录时报错，可能是C:\Program Files\caxa\CAXA WebBoard\bin\ WebUserCom.dll没有<strong>注册</strong>成功，需要使用regsvr32注册这个dll。</p></li>
 
-<li><p>客户端需要安装<code>浏览控件</code>，应该是根据图文档位数安装caxawebplugin.exe(<strong>或者</strong>确定只安装32位的)。另外需要设置C:\Program Files (x86)\CAXA\caxaweb\ <code>zipviewermap.xml</code>,里面配置使用哪种应用打开某格式文件。客户端的<code>ie浏览器</code>需要如下<code>设置</code>：将服务器的地址添加到<code>受信任的站点</code>中。安全设置里面<code>activex控件</code>和插件中，对下载未签名的activex控件选择启用，下载一千名的activex控件选择启用。<figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://darknoll.oss-cn-shanghai.aliyuncs.com/caxavault/board_pics/14.png" alt="IE Internet选项" class="lazyload"><figcaption class="image-caption">IE Internet选项</figcaption></figure></p></li>
+<li><p>客户端需要安装<code>浏览控件</code>，应该是根据图文档位数安装caxawebplugin.exe(<strong>或者</strong>确定只安装32位的)。另外需要设置C:\Program Files (x86)\CAXA\caxaweb\ <code>zipviewermap.xml</code>,里面配置使用哪种应用打开某格式文件。客户端的<code>ie浏览器</code>需要如下<code>设置</code>：将服务器的地址添加到<code>受信任的站点</code>中。安全设置里面<code>activex控件</code>和插件中，对下载未签名的activex控件选择启用，下载一千名的activex控件选择启用。<figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://150.136.142.90:9090/caxavault/board_pics/14.png" alt="IE Internet选项" class="lazyload"><figcaption class="image-caption">IE Internet选项</figcaption></figure></p></li>
 </ul>
 
-<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="https://darknoll.oss-cn-shanghai.aliyuncs.com/caxavault/board_pics/15.png" alt="IE安全设置" class="lazyload"><figcaption class="image-caption">IE安全设置</figcaption></figure></p>
+<p><figure><img src="/images/ring.svg" data-sizes="auto" data-src="http://150.136.142.90:9090/caxavault/board_pics/15.png" alt="IE安全设置" class="lazyload"><figcaption class="image-caption">IE安全设置</figcaption></figure></p>
 
 <h3 id="注意事项">注意事项</h3>
 

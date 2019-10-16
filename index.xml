@@ -24,22 +24,22 @@
 &lt;li&gt;&lt;p&gt;安装CAXA WebBoard(图文档&lt;strong&gt;版本位数&lt;/strong&gt;).exe。&lt;/p&gt;&lt;/li&gt;
 
 &lt;li&gt;&lt;p&gt;安装完成后，先看看服务器的数据库，在数据库PLM的可编程性、存储过程中是否有。确保sql执行过。(有些电脑由于环境变量有问题，没法执行安装盘里面的sql。或者把目录下的所有每一个sql都拖进数据库中执行一遍，结果提示错误不用管。其他项目添加的sql，没有时间整理)
-&lt;img src=&#34;https://darknoll.oss-cn-shanghai.aliyuncs.com/caxavault/board_pics/11.png&#34; alt=&#34;安装时需要执行的sql&#34; /&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;img src=&#34;http://150.136.142.90:9090/caxavault/board_pics/11.png&#34; alt=&#34;安装时需要执行的sql&#34; /&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;img src=&#34;https://darknoll.oss-cn-shanghai.aliyuncs.com/caxavault/board_pics/12.png&#34; alt=&#34;数据库中应有的存储过程&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://150.136.142.90:9090/caxavault/board_pics/12.png&#34; alt=&#34;数据库中应有的存储过程&#34; /&gt;&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;设置&lt;code&gt;授权锁&lt;/code&gt;，步骤打开C:\Program Files\caxa\CAXA WebBoard\lib\server目录下的e4ncli.ini,修改ip地址为授权地址，不知道的话问经理。然后安装服务、启动服务、运行LicInfoService.exe。查看C:\Program Files\caxa\CAXA WebBoard\FileCache目录下的lic.xml是否发生变化，如果value值11551后面跟的不是0，那就是成功了。否则授权没有成功。&lt;/li&gt;
 
-&lt;li&gt;&lt;p&gt;如果电脑是64位，安装的是32位的图文档，需要修改是否启用32位应用程序为true。&lt;img src=&#34;https://darknoll.oss-cn-shanghai.aliyuncs.com/caxavault/board_pics/13.png&#34; alt=&#34;IIS应用程序池&#34; /&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;如果电脑是64位，安装的是32位的图文档，需要修改是否启用32位应用程序为true。&lt;img src=&#34;http://150.136.142.90:9090/caxavault/board_pics/13.png&#34; alt=&#34;IIS应用程序池&#34; /&gt;&lt;/p&gt;&lt;/li&gt;
 
 &lt;li&gt;&lt;p&gt;测试看板是否正确安装，注意，看板使用时客户端&lt;strong&gt;只支持ie&lt;/strong&gt;。如果报错为500.21 internal server error 或者400.17，需要&lt;strong&gt;重装iis&lt;/strong&gt;，在cmd命令行中执行aspnet_regiis -i。如果报错为server error in / application could not write to output file 拒绝访问，需要修改文件夹c:\windows\temp的 iisusers&lt;strong&gt;权限&lt;/strong&gt;，可从网上获取详细资料。如果登录时报错，可能是C:\Program Files\caxa\CAXA WebBoard\bin\ WebUserCom.dll没有&lt;strong&gt;注册&lt;/strong&gt;成功，需要使用regsvr32注册这个dll。&lt;/p&gt;&lt;/li&gt;
 
-&lt;li&gt;&lt;p&gt;客户端需要安装&lt;code&gt;浏览控件&lt;/code&gt;，应该是根据图文档位数安装caxawebplugin.exe(&lt;strong&gt;或者&lt;/strong&gt;确定只安装32位的)。另外需要设置C:\Program Files (x86)\CAXA\caxaweb\ &lt;code&gt;zipviewermap.xml&lt;/code&gt;,里面配置使用哪种应用打开某格式文件。客户端的&lt;code&gt;ie浏览器&lt;/code&gt;需要如下&lt;code&gt;设置&lt;/code&gt;：将服务器的地址添加到&lt;code&gt;受信任的站点&lt;/code&gt;中。安全设置里面&lt;code&gt;activex控件&lt;/code&gt;和插件中，对下载未签名的activex控件选择启用，下载一千名的activex控件选择启用。&lt;img src=&#34;https://darknoll.oss-cn-shanghai.aliyuncs.com/caxavault/board_pics/14.png&#34; alt=&#34;IE Internet选项&#34; /&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;客户端需要安装&lt;code&gt;浏览控件&lt;/code&gt;，应该是根据图文档位数安装caxawebplugin.exe(&lt;strong&gt;或者&lt;/strong&gt;确定只安装32位的)。另外需要设置C:\Program Files (x86)\CAXA\caxaweb\ &lt;code&gt;zipviewermap.xml&lt;/code&gt;,里面配置使用哪种应用打开某格式文件。客户端的&lt;code&gt;ie浏览器&lt;/code&gt;需要如下&lt;code&gt;设置&lt;/code&gt;：将服务器的地址添加到&lt;code&gt;受信任的站点&lt;/code&gt;中。安全设置里面&lt;code&gt;activex控件&lt;/code&gt;和插件中，对下载未签名的activex控件选择启用，下载一千名的activex控件选择启用。&lt;img src=&#34;http://150.136.142.90:9090/caxavault/board_pics/14.png&#34; alt=&#34;IE Internet选项&#34; /&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;img src=&#34;https://darknoll.oss-cn-shanghai.aliyuncs.com/caxavault/board_pics/15.png&#34; alt=&#34;IE安全设置&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://150.136.142.90:9090/caxavault/board_pics/15.png&#34; alt=&#34;IE安全设置&#34; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&#34;注意事项&#34;&gt;注意事项&lt;/h3&gt;
 
@@ -146,7 +146,7 @@ Web.config中的CxCacheDir文件夹需要手动创建。&lt;/p&gt;
 
 &lt;p&gt;假设应用是图文档，那么设置如下图所示：&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;https://darknoll.oss-cn-shanghai.aliyuncs.com/caxavault/plmtools_pics/1.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://150.136.142.90:9090/caxavault/plmtools_pics/1.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&#34;登录&#34;&gt;登录&lt;/h3&gt;
 
@@ -162,7 +162,7 @@ Web.config中的CxCacheDir文件夹需要手动创建。&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;注意：&lt;/strong&gt;导入的已有修改是一个名为.rar的压缩包，该压缩包是通过工具的导出功能得到的，具有一定的格式，如果使用自己手动新建的压缩包，可能无法导入元模型和对象查看器文件。&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;https://darknoll.oss-cn-shanghai.aliyuncs.com/caxavault/plmtools_pics/2.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://150.136.142.90:9090/caxavault/plmtools_pics/2.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&#34;元模型属性修改&#34;&gt;元模型属性修改&lt;/h3&gt;
 
@@ -170,27 +170,27 @@ Web.config中的CxCacheDir文件夹需要手动创建。&lt;/p&gt;
 
 &lt;p&gt;点击下面一排按钮中的&lt;code&gt;新增&lt;/code&gt;，在弹出的对话框中填入新属性的&lt;code&gt;内部名&lt;/code&gt;、&lt;code&gt;外部名&lt;/code&gt;等信息，完成后点击&lt;code&gt;保存&lt;/code&gt;。&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;https://darknoll.oss-cn-shanghai.aliyuncs.com/caxavault/plmtools_pics/3.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://150.136.142.90:9090/caxavault/plmtools_pics/3.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;操作成功后，下方的&lt;code&gt;输出信息&lt;/code&gt;中会显示对应的消息提示。&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;https://darknoll.oss-cn-shanghai.aliyuncs.com/caxavault/plmtools_pics/4.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://150.136.142.90:9090/caxavault/plmtools_pics/4.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&#34;对象查看器属性修改&#34;&gt;对象查看器属性修改&lt;/h3&gt;
 
 &lt;p&gt;元模型属性改好后，可以修改对象查看器属性，切换左侧的&lt;code&gt;元模型定义树&lt;/code&gt;至&lt;code&gt;对象查看器定义树&lt;/code&gt;，我们现在需要将零部件新增的属性&lt;code&gt;Test&lt;/code&gt;在图文档零部件查看器中显示出来，选中&lt;code&gt;零部件&lt;/code&gt;下的&lt;code&gt;零部件属性查看器&lt;/code&gt;，依次点击&lt;code&gt;编辑&lt;/code&gt;、&lt;code&gt;新增属性&lt;/code&gt;，在弹出的新增属性对话框中，将&lt;code&gt;Test&lt;/code&gt;这一行前面的选框勾上，点击&lt;code&gt;确定&lt;/code&gt;。&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;https://darknoll.oss-cn-shanghai.aliyuncs.com/caxavault/plmtools_pics/5.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://150.136.142.90:9090/caxavault/plmtools_pics/5.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;如果没有问题的话，会在界面中看到该属性已经增加到对象查看器文件中，点击&lt;code&gt;保存&lt;/code&gt;即可，&lt;code&gt;输出信息&lt;/code&gt;同样会显示操作内容。&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;https://darknoll.oss-cn-shanghai.aliyuncs.com/caxavault/plmtools_pics/6.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://150.136.142.90:9090/caxavault/plmtools_pics/6.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&#34;映射数据库&#34;&gt;映射数据库&lt;/h3&gt;
 
 &lt;p&gt;完成元模型和对象查看器修改之后，需要将新增的属性映射到对应的数据库表中，此时点击菜单栏中的&lt;code&gt;更新数据库&lt;/code&gt;，会弹出需要映射的字段信息：&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;https://darknoll.oss-cn-shanghai.aliyuncs.com/caxavault/plmtools_pics/7.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://150.136.142.90:9090/caxavault/plmtools_pics/7.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;点击&lt;code&gt;开始更新&lt;/code&gt;，会自动连接数据库进行更新操作。&lt;/p&gt;
 
@@ -198,7 +198,7 @@ Web.config中的CxCacheDir文件夹需要手动创建。&lt;/p&gt;
 
 &lt;p&gt;完成了元模型修改-&amp;gt;对象查看器修改-&amp;gt;映射数据库等操作之后，需要将修改的元模型文件和对象查看器文件上传到模板库供其他客户端下载使用。点击工具栏的&lt;code&gt;上传模板库&lt;/code&gt;按钮，会分别列出已修改的元模型文件和对象查看器文件，点击&lt;code&gt;上传&lt;/code&gt;会将文件上传至模板库。&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;https://darknoll.oss-cn-shanghai.aliyuncs.com/caxavault/plmtools_pics/8.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://150.136.142.90:9090/caxavault/plmtools_pics/8.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&#34;重启服务&#34;&gt;重启服务&lt;/h3&gt;
 
@@ -215,8 +215,8 @@ Web.config中的CxCacheDir文件夹需要手动创建。&lt;/p&gt;
 &lt;h3 id=&#34;相关文件下载&#34;&gt;相关文件下载&lt;/h3&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://darknoll.oss-cn-shanghai.aliyuncs.com/caxavault/%E7%94%A8%E6%88%B7%E5%B7%A5%E5%85%B7%E7%AE%B1%EF%BC%88PlmUserToolBox.exe%EF%BC%89%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E.pdf&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;用户工具箱（PlmUserToolBox.exe）使用说明.pdf&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://darknoll.oss-cn-shanghai.aliyuncs.com/caxavault/plmtools2019.rar&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;plmtools_2019sp1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://150.136.142.90:9090/caxavault/%E7%94%A8%E6%88%B7%E5%B7%A5%E5%85%B7%E7%AE%B1%EF%BC%88PlmUserToolBox.exe%EF%BC%89%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E.pdf&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;用户工具箱（PlmUserToolBox.exe）使用说明.pdf&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://150.136.142.90:9090/caxavault/plmtools2019.rar&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;plmtools_2019sp1&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>
