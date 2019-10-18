@@ -5,8 +5,235 @@
     <description>Recent content in Darknoll`s Blog on Darknoll`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 16 Oct 2019 10:01:22 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 18 Oct 2019 17:20:04 +0800</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>梯子安装说明</title>
+      <link>https://darknoll.github.io/2019/006/</link>
+      <pubDate>Fri, 18 Oct 2019 17:20:04 +0800</pubDate>
+      
+      <guid>https://darknoll.github.io/2019/006/</guid>
+      <description>
+
+&lt;h3 id=&#34;linux发行版选择&#34;&gt;Linux发行版选择&lt;/h3&gt;
+
+&lt;p&gt;现在一般的vps服务商主要提供以下几种Linux发型版：&lt;code&gt;CentOS&lt;/code&gt;、&lt;code&gt;Ubuntu&lt;/code&gt;、&lt;code&gt;Debian&lt;/code&gt;，我个人一般使用Centos来用，虽然这种确实不好用，不如Debian和Ubuntu操作方便，但是用习惯了也就忍了。&lt;/p&gt;
+
+&lt;h3 id=&#34;bbr加速&#34;&gt;bbr加速&lt;/h3&gt;
+
+&lt;p&gt;大部分人购买vps的主要用途是搭建梯子，那么网速就是头等大事，在无法改变带宽的情况下，通过提高网络吞吐量来加速网络是一种切实可行的方法。&lt;/p&gt;
+
+&lt;p&gt;bbr是谷歌研发的一种TCP拥塞控制算法，它可以有效提高吞吐量和降低网络延迟，并且Linux Kernel4.9+已经集成了该算法。&lt;/p&gt;
+
+&lt;p&gt;先检查Linux内核版本：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;# uname -r
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;看看结果，如果是输出类似：&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;3.10.0-957.5.1.el7.x86_64&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;则表示先升级内核，然后才能开启Google BBR。（升级内核暂时跳过，可自行谷歌）&lt;/p&gt;
+
+&lt;p&gt;若内核大于4.9，那么我们直接使用&lt;code&gt;秋水逸冰&lt;/code&gt;的一键脚本即可：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;wget --no-check-certificate https://github.com/teddysun/across/raw/master/bbr.sh
+chmod +x bbr.sh
+./bbr.sh
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;完成后检查一下结果，看是不是确实成功开启：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;sysctl net.ipv4.tcp_congestion_control
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;如果成功，返回值一般为&lt;code&gt;net.ipv4.tcp_congestion_control = bbr&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;v2ray的安装和使用&#34;&gt;V2ray的安装和使用&lt;/h3&gt;
+
+&lt;p&gt;众所周知，ss/ssr已经被墙完美识别，那么现存的方法其实主要就是v2ray和wireguard等富强技术。wireguard还不是那么成熟和稳定，因此我自己选用v2ray。&lt;/p&gt;
+
+&lt;p&gt;首先，使用一键脚本安装v2ray。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;wget https://install.direct/go.sh
+bash go.sh
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;安装好之后，配一下自带的配置文件，地址在&lt;code&gt;/etc/v2ray/config.json&lt;/code&gt;。&lt;/p&gt;
+
+&lt;p&gt;如果仅仅是简单实用google等，偶尔查阅使用，可以简单配置下，使用tcp代理。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;{
+  &amp;quot;inbounds&amp;quot;: [{
+    &amp;quot;port&amp;quot;: 选择一个端口号,
+    &amp;quot;protocol&amp;quot;: &amp;quot;vmess&amp;quot;,
+    &amp;quot;settings&amp;quot;: {
+      &amp;quot;clients&amp;quot;: [
+        {
+          &amp;quot;id&amp;quot;: &amp;quot;选择一个ID&amp;quot;,
+          &amp;quot;level&amp;quot;: 1,
+          &amp;quot;alterId&amp;quot;: 64
+        }
+      ]
+    }
+  }],
+  &amp;quot;outbounds&amp;quot;: [{
+    &amp;quot;protocol&amp;quot;: &amp;quot;freedom&amp;quot;,
+    &amp;quot;settings&amp;quot;: {}
+  },{
+    &amp;quot;protocol&amp;quot;: &amp;quot;blackhole&amp;quot;,
+    &amp;quot;settings&amp;quot;: {},
+    &amp;quot;tag&amp;quot;: &amp;quot;blocked&amp;quot;
+  }],
+  &amp;quot;routing&amp;quot;: {
+    &amp;quot;rules&amp;quot;: [
+      {
+        &amp;quot;type&amp;quot;: &amp;quot;field&amp;quot;,
+        &amp;quot;ip&amp;quot;: [&amp;quot;geoip:private&amp;quot;],
+        &amp;quot;outboundTag&amp;quot;: &amp;quot;blocked&amp;quot;
+      }
+    ]
+  }
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;如果是深度用户，那么可能使用WebSocket+TLS+CDN的方式更为可靠，因为如果富强被发现的话，IP可能会被封，谁都不希望自己花钱买的vps不能用，所以，最好还是用这种方法更保险，按照以下步骤来：&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;购买域名并添加A记录解析到你的VPS主机IP地址；（如果是国外的域名不需要实名认证，如果是国内的域名，需要实名认证，如果想打开80端口，那么还需要备案，但是这样也有好处，可以套个国内的CDN，加速效果更好）；&lt;/li&gt;
+&lt;li&gt;使用Caddy/Nginx等软件反代，这里我们使用Caddy，因为它是使用golang编写的，部署和使用更为便捷（特别是https）；&lt;/li&gt;
+&lt;li&gt;套CDN，如果是国外的域名，那使用CloudFlare可能是一个比较好的选择。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;那么，我们先看一下ws+tls的v2ray服务端配置：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;{
+  &amp;quot;inbounds&amp;quot;: [{
+    &amp;quot;port&amp;quot;: 选择一个端口号,
+    &amp;quot;listen&amp;quot;: &amp;quot;127.0.0.1&amp;quot;,
+    &amp;quot;protocol&amp;quot;: &amp;quot;vmess&amp;quot;,
+    &amp;quot;settings&amp;quot;: {
+      &amp;quot;clients&amp;quot;: [
+        {
+          &amp;quot;id&amp;quot;: &amp;quot;选择一个ID&amp;quot;,
+          &amp;quot;level&amp;quot;: 1,
+          &amp;quot;alterId&amp;quot;: 64
+        }
+      ]
+    },
+  
+  &amp;quot;streamSettings&amp;quot;: {
+    &amp;quot;network&amp;quot;: &amp;quot;ws&amp;quot;,
+    &amp;quot;wsSettings&amp;quot;: {
+	&amp;quot;path&amp;quot;: &amp;quot;/ray&amp;quot;
+     }
+  }}],
+  &amp;quot;outbounds&amp;quot;: [{
+    &amp;quot;protocol&amp;quot;: &amp;quot;freedom&amp;quot;,
+    &amp;quot;settings&amp;quot;: {}
+  },{
+    &amp;quot;protocol&amp;quot;: &amp;quot;blackhole&amp;quot;,
+    &amp;quot;settings&amp;quot;: {},
+    &amp;quot;tag&amp;quot;: &amp;quot;blocked&amp;quot;
+  }],
+  &amp;quot;routing&amp;quot;: {
+    &amp;quot;rules&amp;quot;: [
+      {
+        &amp;quot;type&amp;quot;: &amp;quot;field&amp;quot;,
+        &amp;quot;ip&amp;quot;: [&amp;quot;geoip:private&amp;quot;],
+        &amp;quot;outboundTag&amp;quot;: &amp;quot;blocked&amp;quot;
+      }
+    ]
+  }
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;再看一下客户端的配置：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;  &amp;quot;outbounds&amp;quot;: [
+    {
+      &amp;quot;tag&amp;quot;: &amp;quot;proxy&amp;quot;,
+      &amp;quot;protocol&amp;quot;: &amp;quot;vmess&amp;quot;,
+      &amp;quot;settings&amp;quot;: {
+        &amp;quot;vnext&amp;quot;: [
+          {
+            &amp;quot;address&amp;quot;: &amp;quot;域名&amp;quot;,
+            &amp;quot;port&amp;quot;: 443,
+            &amp;quot;users&amp;quot;: [
+              {
+                &amp;quot;id&amp;quot;: &amp;quot;你的ID&amp;quot;,
+                &amp;quot;alterId&amp;quot;: 0,
+                &amp;quot;email&amp;quot;: &amp;quot;t@t.tt&amp;quot;,
+                &amp;quot;security&amp;quot;: &amp;quot;auto&amp;quot;
+              }
+            ]
+          }
+        ],
+        &amp;quot;servers&amp;quot;: null,
+        &amp;quot;response&amp;quot;: null
+      },
+      &amp;quot;streamSettings&amp;quot;: {
+        &amp;quot;network&amp;quot;: &amp;quot;ws&amp;quot;,
+        &amp;quot;security&amp;quot;: &amp;quot;tls&amp;quot;,
+        &amp;quot;tlsSettings&amp;quot;: {
+          &amp;quot;allowInsecure&amp;quot;: true,
+          &amp;quot;serverName&amp;quot;: null
+        },
+        &amp;quot;tcpSettings&amp;quot;: null,
+        &amp;quot;kcpSettings&amp;quot;: null,
+        &amp;quot;wsSettings&amp;quot;: {
+          &amp;quot;connectionReuse&amp;quot;: true,
+          &amp;quot;path&amp;quot;: &amp;quot;/ray&amp;quot;,
+          &amp;quot;headers&amp;quot;: null
+        },
+        &amp;quot;httpSettings&amp;quot;: null,
+        &amp;quot;quicSettings&amp;quot;: null
+      },
+      &amp;quot;mux&amp;quot;: {
+        &amp;quot;enabled&amp;quot;: true
+      }
+    },
+    ...
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;caddy的安装和使用&#34;&gt;Caddy的安装和使用&lt;/h3&gt;
+
+&lt;p&gt;使用官方提供的脚本直接安装：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;curl -s https://getcaddy.com | bash
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;安装完了可以用&lt;code&gt;which caddy&lt;/code&gt;命令查看一下安装位置，一般情况下是在&lt;code&gt;/usr/local/bin/caddy&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;在&lt;code&gt;/etc&lt;/code&gt;下创建caddy的配置文件&lt;code&gt;/etc/caddy/caddy.config&lt;/code&gt;：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;****.com   //此处填写你的域名
+{
+  log ./caddy.log
+  proxy /ray localhost:端口号 {
+    websocket
+    header_upstream -Origin
+  }
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;运行caddy：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;caddy -conf /etc/caddy/caddy.config
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;套cdn&#34;&gt;套CDN&lt;/h3&gt;
+
+&lt;p&gt;使用CloudFlare就可以了，可以参考其他网络教程。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>制造看板安装说明</title>

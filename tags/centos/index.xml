@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>centos on Darknoll`s Blog</title>
+    <link>https://darknoll.github.io/tags/centos/</link>
+    <description>Recent content in centos on Darknoll`s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 18 Oct 2019 17:20:04 +0800</lastBuildDate>
+    
+	<atom:link href="https://darknoll.github.io/tags/centos/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>梯子安装说明</title>
+      <link>https://darknoll.github.io/2019/006/</link>
+      <pubDate>Fri, 18 Oct 2019 17:20:04 +0800</pubDate>
+      
+      <guid>https://darknoll.github.io/2019/006/</guid>
+      <description>Linux发行版选择 现在一般的vps服务商主要提供以下几种Linux发型版：CentOS、Ubuntu、Debian，我个人一般使用Cent</description>
+    </item>
+    
+  </channel>
+</rss>
