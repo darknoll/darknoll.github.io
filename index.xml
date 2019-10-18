@@ -18,7 +18,7 @@
 
 &lt;h3 id=&#34;linux发行版选择&#34;&gt;Linux发行版选择&lt;/h3&gt;
 
-&lt;p&gt;现在一般的vps服务商主要提供以下几种Linux发型版：&lt;code&gt;CentOS&lt;/code&gt;、&lt;code&gt;Ubuntu&lt;/code&gt;、&lt;code&gt;Debian&lt;/code&gt;，我个人一般使用Centos来用，虽然这种确实不好用，不如Debian和Ubuntu操作方便，但是用习惯了也就忍了。&lt;/p&gt;
+&lt;p&gt;现在一般的vps服务商主要提供以下几种Linux发型版：&lt;code&gt;CentOS&lt;/code&gt;、&lt;code&gt;Ubuntu&lt;/code&gt;、&lt;code&gt;Debian&lt;/code&gt;，我个人一般使用Centos，虽然这种确实不好用，不如Debian和Ubuntu操作方便，但是用习惯了也就忍了。&lt;/p&gt;
 
 &lt;h3 id=&#34;bbr加速&#34;&gt;bbr加速&lt;/h3&gt;
 
@@ -39,7 +39,7 @@
 
 &lt;p&gt;则表示先升级内核，然后才能开启Google BBR。（升级内核暂时跳过，可自行谷歌）&lt;/p&gt;
 
-&lt;p&gt;若内核大于4.9，那么我们直接使用&lt;code&gt;秋水逸冰&lt;/code&gt;的一键脚本即可：&lt;/p&gt;
+&lt;p&gt;若内核大于4.9，那么我们直接使用一键脚本即可：&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;wget --no-check-certificate https://github.com/teddysun/across/raw/master/bbr.sh
 chmod +x bbr.sh
