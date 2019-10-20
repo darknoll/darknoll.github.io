@@ -12,12 +12,12 @@
     
     
     <item>
-      <title>梯子安装说明</title>
+      <title>梯子安装指南</title>
       <link>https://darknoll.github.io/2019/006/</link>
       <pubDate>Fri, 18 Oct 2019 17:20:04 +0800</pubDate>
       
       <guid>https://darknoll.github.io/2019/006/</guid>
-      <description>Linux发行版选择 现在一般的vps服务商主要提供以下几种Linux发型版：CentOS、Ubuntu、Debian，我个人一般使用Cent</description>
+      <description>Linux发行版选择 现在一般的vps服务商主要提供以下几种Linux发型版：CentOS、Ubuntu、Debian，我选用的是CentOS</description>
     </item>
     
   </channel>

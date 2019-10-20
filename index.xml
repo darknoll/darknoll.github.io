@@ -9,7 +9,7 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>梯子安装说明</title>
+      <title>梯子安装指南</title>
       <link>https://darknoll.github.io/2019/006/</link>
       <pubDate>Fri, 18 Oct 2019 17:20:04 +0800</pubDate>
       
@@ -18,7 +18,7 @@
 
 &lt;h3 id=&#34;linux发行版选择&#34;&gt;Linux发行版选择&lt;/h3&gt;
 
-&lt;p&gt;现在一般的vps服务商主要提供以下几种Linux发型版：&lt;code&gt;CentOS&lt;/code&gt;、&lt;code&gt;Ubuntu&lt;/code&gt;、&lt;code&gt;Debian&lt;/code&gt;，我个人一般使用Centos，虽然这种确实不好用，不如Debian和Ubuntu操作方便，但是用习惯了也就忍了。&lt;/p&gt;
+&lt;p&gt;现在一般的vps服务商主要提供以下几种Linux发型版：&lt;code&gt;CentOS&lt;/code&gt;、&lt;code&gt;Ubuntu&lt;/code&gt;、&lt;code&gt;Debian&lt;/code&gt;，我选用的是&lt;code&gt;CentOS&lt;/code&gt;。&lt;/p&gt;
 
 &lt;h3 id=&#34;bbr加速&#34;&gt;bbr加速&lt;/h3&gt;
 
@@ -37,7 +37,7 @@
 &lt;p&gt;3.10.0-957.5.1.el7.x86_64&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;则表示先升级内核，然后才能开启Google BBR。（升级内核暂时跳过，可自行谷歌）&lt;/p&gt;
+&lt;p&gt;则表示先升级内核，然后才能开启Google BBR。（升级内核可以参考&lt;a href=&#34;https://www.xiaoz.me/archives/9919&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;这里&lt;/a&gt;）&lt;/p&gt;
 
 &lt;p&gt;若内核大于4.9，那么我们直接使用一键脚本即可：&lt;/p&gt;
 
@@ -227,6 +227,19 @@ bash go.sh
 &lt;p&gt;运行caddy：&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;caddy -conf /etc/caddy/caddy.config
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;把caddy配置成服务：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;sudo curl -s https://raw.githubusercontent.com/mholt/caddy/master/dist/init/linux-systemd/caddy.service -o /etc/systemd/system/caddy.service   # 从 github 下载 systemd 配置文件
+sudo systemctl daemon-reload        # 重新加载 systemd 配置
+sudo systemctl enable caddy.service # 设置 caddy 服务自启动
+sudo systemctl status caddy.service # 查看 caddy 状态
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;每次修改了caddy配置文件都需要重启下服务：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-BASH&#34;&gt;sudo systemctl restart caddy.service
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;h3 id=&#34;套cdn&#34;&gt;套CDN&lt;/h3&gt;
