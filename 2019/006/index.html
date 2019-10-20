@@ -57,7 +57,7 @@
     "datePublished": "2019-10-18 17:20:04 \x2b0800 CST",
     "dateModified" : "2019-10-18 17:20:04 \x2b0800 CST",
     "url" : "https:\/\/darknoll.github.io\/2019\/006\/",
-    "wordCount" : "1486",
+    "wordCount" : "1503",
     "keywords" : [ "centos", "Darknoll`s Blog"]
 }
 </script>
@@ -334,11 +334,17 @@ bash go.sh
     ...
 </code></pre>
 
+<p>启动v2ray服务：</p>
+
+<pre><code class="language-bash">systemctl enable v2ray
+systemctl start v2ray
+</code></pre>
+
 <h3 id="caddy的安装和使用">Caddy的安装和使用</h3>
 
 <p>使用官方提供的脚本直接安装：</p>
 
-<pre><code class="language-bash">curl -s https://getcaddy.com | bash
+<pre><code class="language-bash">curl https://getcaddy.com | bash -s personal
 </code></pre>
 
 <p>安装完了可以用<code>which caddy</code>命令查看一下安装位置，一般情况下是在<code>/usr/local/bin/caddy</code></p>
