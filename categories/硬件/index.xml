@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>硬件 on Darknoll`s Blog</title>
-    <link>https://darknoll.github.io/categories/%E7%A1%AC%E4%BB%B6/</link>
-    <description>Recent content in 硬件 on Darknoll`s Blog</description>
+    <title>硬件 on yyc`s Blog</title>
+    <link>https://caxavault.online/categories/%E7%A1%AC%E4%BB%B6/</link>
+    <description>Recent content in 硬件 on yyc`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Fri, 16 Aug 2019 15:16:31 +0800</lastBuildDate>
     
-	<atom:link href="https://darknoll.github.io/categories/%E7%A1%AC%E4%BB%B6/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://caxavault.online/categories/%E7%A1%AC%E4%BB%B6/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>适合自己的 NAS 怎么选？不妨从这 4 个参数入手</title>
-      <link>https://darknoll.github.io/2019/002/</link>
+      <link>https://caxavault.online/2019/002/</link>
       <pubDate>Fri, 16 Aug 2019 15:16:31 +0800</pubDate>
       
-      <guid>https://darknoll.github.io/2019/002/</guid>
+      <guid>https://caxavault.online/2019/002/</guid>
       <description>根据需求有限考虑硬盘数 对于大部分人来说，购买NAS的需求大致都可以归纳为两个场景：家用和小型办公。他们的出发点一般都是这样的： 对价格相对敏感</description>
     </item>
     

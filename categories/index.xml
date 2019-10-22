@@ -1,49 +1,49 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Categories on Darknoll`s Blog</title>
-    <link>https://darknoll.github.io/categories/</link>
-    <description>Recent content in Categories on Darknoll`s Blog</description>
+    <title>Categories on yyc`s Blog</title>
+    <link>https://caxavault.online/categories/</link>
+    <description>Recent content in Categories on yyc`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Fri, 18 Oct 2019 17:20:04 +0800</lastBuildDate>
     
-	<atom:link href="https://darknoll.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://caxavault.online/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Linux</title>
-      <link>https://darknoll.github.io/categories/linux/</link>
+      <link>https://caxavault.online/categories/linux/</link>
       <pubDate>Fri, 18 Oct 2019 17:20:04 +0800</pubDate>
       
-      <guid>https://darknoll.github.io/categories/linux/</guid>
+      <guid>https://caxavault.online/categories/linux/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Caxa</title>
-      <link>https://darknoll.github.io/categories/caxa/</link>
+      <link>https://caxavault.online/categories/caxa/</link>
       <pubDate>Wed, 16 Oct 2019 10:01:22 +0800</pubDate>
       
-      <guid>https://darknoll.github.io/categories/caxa/</guid>
+      <guid>https://caxavault.online/categories/caxa/</guid>
       <description></description>
     </item>
     
     <item>
       <title>硬件</title>
-      <link>https://darknoll.github.io/categories/%E7%A1%AC%E4%BB%B6/</link>
+      <link>https://caxavault.online/categories/%E7%A1%AC%E4%BB%B6/</link>
       <pubDate>Fri, 16 Aug 2019 15:16:31 +0800</pubDate>
       
-      <guid>https://darknoll.github.io/categories/%E7%A1%AC%E4%BB%B6/</guid>
+      <guid>https://caxavault.online/categories/%E7%A1%AC%E4%BB%B6/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Web安全</title>
-      <link>https://darknoll.github.io/categories/web%E5%AE%89%E5%85%A8/</link>
+      <link>https://caxavault.online/categories/web%E5%AE%89%E5%85%A8/</link>
       <pubDate>Wed, 14 Aug 2019 10:58:21 +0800</pubDate>
       
-      <guid>https://darknoll.github.io/categories/web%E5%AE%89%E5%85%A8/</guid>
+      <guid>https://caxavault.online/categories/web%E5%AE%89%E5%85%A8/</guid>
       <description></description>
     </item>
     

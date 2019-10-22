@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Caxa on Darknoll`s Blog</title>
-    <link>https://darknoll.github.io/categories/caxa/</link>
-    <description>Recent content in Caxa on Darknoll`s Blog</description>
+    <title>Caxa on yyc`s Blog</title>
+    <link>https://caxavault.online/categories/caxa/</link>
+    <description>Recent content in Caxa on yyc`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Wed, 16 Oct 2019 10:01:22 +0800</lastBuildDate>
     
-	<atom:link href="https://darknoll.github.io/categories/caxa/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://caxavault.online/categories/caxa/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>制造看板安装说明</title>
-      <link>https://darknoll.github.io/2019/005/</link>
+      <link>https://caxavault.online/2019/005/</link>
       <pubDate>Wed, 16 Oct 2019 10:01:22 +0800</pubDate>
       
-      <guid>https://darknoll.github.io/2019/005/</guid>
+      <guid>https://caxavault.online/2019/005/</guid>
       <description>安装步骤 安装完整IIS。不同版本电脑安装方法不同，可分别从网上搜索。由于看板产品基于asp.net开发，确保在安装时选择应用程序开发功能中.</description>
     </item>
     
     <item>
       <title>用户工具箱（PlmUserToolBox.exe）使用说明</title>
-      <link>https://darknoll.github.io/2019/003/</link>
+      <link>https://caxavault.online/2019/003/</link>
       <pubDate>Mon, 19 Aug 2019 14:30:21 +0800</pubDate>
       
-      <guid>https://darknoll.github.io/2019/003/</guid>
+      <guid>https://caxavault.online/2019/003/</guid>
       <description>工具简介 该工具主要用于以下用途： 元模型类/关系/行为属性的增加/修改/删除 对象查看器中属性的增加/修改/删除 数据库表中新增字段的添加 设置工具</description>
     </item>
     

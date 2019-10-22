@@ -1,8 +1,8 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Darknoll`s Blog on Darknoll`s Blog</title>
-    <link>https://darknoll.github.io/</link>
-    <description>Recent content in Darknoll`s Blog on Darknoll`s Blog</description>
+    <title>yyc`s Blog on yyc`s Blog</title>
+    <link>https://caxavault.online/</link>
+    <description>Recent content in yyc`s Blog on yyc`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Fri, 18 Oct 2019 17:20:04 +0800</lastBuildDate>
@@ -10,10 +10,10 @@
     
     <item>
       <title>梯子安装指南</title>
-      <link>https://darknoll.github.io/2019/006/</link>
+      <link>https://caxavault.online/2019/006/</link>
       <pubDate>Fri, 18 Oct 2019 17:20:04 +0800</pubDate>
       
-      <guid>https://darknoll.github.io/2019/006/</guid>
+      <guid>https://caxavault.online/2019/006/</guid>
       <description>
 
 &lt;h3 id=&#34;linux发行版选择&#34;&gt;Linux发行版选择&lt;/h3&gt;
@@ -266,10 +266,10 @@ sudo systemctl status caddy.service # 查看 caddy 状态
     
     <item>
       <title>制造看板安装说明</title>
-      <link>https://darknoll.github.io/2019/005/</link>
+      <link>https://caxavault.online/2019/005/</link>
       <pubDate>Wed, 16 Oct 2019 10:01:22 +0800</pubDate>
       
-      <guid>https://darknoll.github.io/2019/005/</guid>
+      <guid>https://caxavault.online/2019/005/</guid>
       <description>
 
 &lt;h3 id=&#34;安装步骤&#34;&gt;安装步骤&lt;/h3&gt;
@@ -308,10 +308,10 @@ Web.config中的CxCacheDir文件夹需要手动创建。&lt;/p&gt;
     
     <item>
       <title>ssh禁止root用户直接登录并修改默认端口</title>
-      <link>https://darknoll.github.io/2019/004/</link>
+      <link>https://caxavault.online/2019/004/</link>
       <pubDate>Tue, 20 Aug 2019 15:23:34 +0800</pubDate>
       
-      <guid>https://darknoll.github.io/2019/004/</guid>
+      <guid>https://caxavault.online/2019/004/</guid>
       <description>
 
 &lt;p&gt;&lt;strong&gt;Linux最高权限用户root，默认可以直接登录sshd，为了提高服务器的安全性，需要对它进行禁止，使得攻击者无法通过暴力破解来获取root权限&lt;/strong&gt;&lt;/p&gt;
@@ -377,10 +377,10 @@ Web.config中的CxCacheDir文件夹需要手动创建。&lt;/p&gt;
     
     <item>
       <title>用户工具箱（PlmUserToolBox.exe）使用说明</title>
-      <link>https://darknoll.github.io/2019/003/</link>
+      <link>https://caxavault.online/2019/003/</link>
       <pubDate>Mon, 19 Aug 2019 14:30:21 +0800</pubDate>
       
-      <guid>https://darknoll.github.io/2019/003/</guid>
+      <guid>https://caxavault.online/2019/003/</guid>
       <description>
 
 &lt;h3 id=&#34;工具简介&#34;&gt;工具简介&lt;/h3&gt;
@@ -479,10 +479,10 @@ Web.config中的CxCacheDir文件夹需要手动创建。&lt;/p&gt;
     
     <item>
       <title>适合自己的 NAS 怎么选？不妨从这 4 个参数入手</title>
-      <link>https://darknoll.github.io/2019/002/</link>
+      <link>https://caxavault.online/2019/002/</link>
       <pubDate>Fri, 16 Aug 2019 15:16:31 +0800</pubDate>
       
-      <guid>https://darknoll.github.io/2019/002/</guid>
+      <guid>https://caxavault.online/2019/002/</guid>
       <description>
 
 &lt;p&gt;&lt;img src=&#34;https://cdn.sspai.com/article/d28c50f9-9982-f4a0-964a-f6a2f3e23dad.jpg?imageMogr2/quality/95/thumbnail/!1440x480r/gravity/Center/crop/1440x480&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
@@ -585,10 +585,10 @@ Web.config中的CxCacheDir文件夹需要手动创建。&lt;/p&gt;
     
     <item>
       <title>浅谈跨域威胁与安全</title>
-      <link>https://darknoll.github.io/2019/001/</link>
+      <link>https://caxavault.online/2019/001/</link>
       <pubDate>Wed, 14 Aug 2019 10:58:21 +0800</pubDate>
       
-      <guid>https://darknoll.github.io/2019/001/</guid>
+      <guid>https://caxavault.online/2019/001/</guid>
       <description>
 
 &lt;p&gt;&lt;strong&gt;WEB前端中最常见的两种安全风险，XSS与CSRF，XSS，即跨站脚本攻击、CSRF即跨站请求伪造,两者属于跨域安全攻击，对于常见的XSS以及CSRF在此不多谈论，仅谈论一些不太常见的跨域技术以及安全威胁。&lt;/strong&gt;&lt;/p&gt;
@@ -892,10 +892,10 @@ echo $callback.&amp;quot;({&#39;id&#39;:1,&#39;name&#39;:&#39;missfresh&#39;})&a
     
     <item>
       <title>Darknoll</title>
-      <link>https://darknoll.github.io/about/</link>
+      <link>https://caxavault.online/about/</link>
       <pubDate>Wed, 14 Aug 2019 10:28:04 +0800</pubDate>
       
-      <guid>https://darknoll.github.io/about/</guid>
+      <guid>https://caxavault.online/about/</guid>
       <description>&lt;p&gt;&lt;center style=&#34;font-family:楷体; font-size: 24px;&#34;&gt;
 &lt;p&gt;天地玄黄，宇宙洪荒。&lt;/p&gt;
 &lt;p&gt;日月盈昃，辰宿列张。&lt;/p&gt;

@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Linux on Darknoll`s Blog</title>
-    <link>https://darknoll.github.io/categories/linux/</link>
-    <description>Recent content in Linux on Darknoll`s Blog</description>
+    <title>Linux on yyc`s Blog</title>
+    <link>https://caxavault.online/categories/linux/</link>
+    <description>Recent content in Linux on yyc`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Fri, 18 Oct 2019 17:20:04 +0800</lastBuildDate>
     
-	<atom:link href="https://darknoll.github.io/categories/linux/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://caxavault.online/categories/linux/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>梯子安装指南</title>
-      <link>https://darknoll.github.io/2019/006/</link>
+      <link>https://caxavault.online/2019/006/</link>
       <pubDate>Fri, 18 Oct 2019 17:20:04 +0800</pubDate>
       
-      <guid>https://darknoll.github.io/2019/006/</guid>
+      <guid>https://caxavault.online/2019/006/</guid>
       <description>Linux发行版选择 现在一般的vps服务商主要提供以下几种Linux发型版：CentOS、Ubuntu、Debian，我选用的是CentOS</description>
     </item>
     
     <item>
       <title>ssh禁止root用户直接登录并修改默认端口</title>
-      <link>https://darknoll.github.io/2019/004/</link>
+      <link>https://caxavault.online/2019/004/</link>
       <pubDate>Tue, 20 Aug 2019 15:23:34 +0800</pubDate>
       
-      <guid>https://darknoll.github.io/2019/004/</guid>
+      <guid>https://caxavault.online/2019/004/</guid>
       <description>Linux最高权限用户root，默认可以直接登录sshd，为了提高服务器的安全性，需要对它进行禁止，使得攻击者无法通过暴力破解来获取root</description>
     </item>
     
