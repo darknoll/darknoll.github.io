@@ -24,9 +24,9 @@
 
 &lt;h3 id=&#34;frp的安装&#34;&gt;frp的安装&lt;/h3&gt;
 
-&lt;ol&gt;
+&lt;ul&gt;
 &lt;li&gt;服务端，也就是你的vps主机，需要安装frps，主要就是两个文件：&lt;code&gt;frps.exe&lt;/code&gt;和&lt;code&gt;frps.ini&lt;/code&gt;。&lt;/li&gt;
-&lt;/ol&gt;
+&lt;/ul&gt;
 
 &lt;p&gt;注意一下这两个文件的位置，个人的摆放位置是：&lt;code&gt;/usr/local/bin/frps/frps.exe&lt;/code&gt;和&lt;code&gt;/etc/frp/frps.ini&lt;/code&gt;，另外把&lt;code&gt;frps.service&lt;/code&gt;里面对应的内容修改。&lt;/p&gt;
 
@@ -43,13 +43,13 @@
    systemd start frps
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;ol&gt;
+&lt;ul&gt;
 &lt;li&gt;&lt;p&gt;客户端，即需要远程控制的内网主机，使用对应的客户端文件：&lt;code&gt;frpc.exe&lt;/code&gt;和&lt;code&gt;frpc.ini&lt;/code&gt;，打开&lt;code&gt;frpc.ini&lt;/code&gt;进行配置：&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;[common]
 server_addr = 服务器ip地址
 server_port = 服务器配置的bind_port
-   
+
 [rdp]
 type = tcp
 local_ip = 127.0.0.1
@@ -57,16 +57,16 @@ local_port = 3389
 remote_port = 选择一个连接端口
 custom_domains = 选择一个连接域名
 &lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-&lt;/ol&gt;
+&lt;/ul&gt;
 
 &lt;p&gt;配置完成，直接运行：&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;   frpc.exe -c frpc.ini
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;frpc.exe -c frpc.ini
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;ol&gt;
+&lt;ul&gt;
 &lt;li&gt;在自己的机器上远程控制内网机器：直接使用windows的远程控制桌面即可，输入&lt;code&gt;custom_domains:remote_port&lt;/code&gt;即可。&lt;/li&gt;
-&lt;/ol&gt;
+&lt;/ul&gt;
 </description>
     </item>
     

@@ -156,9 +156,9 @@
 
 <h3 id="frp的安装">frp的安装</h3>
 
-<ol>
+<ul>
 <li>服务端，也就是你的vps主机，需要安装frps，主要就是两个文件：<code>frps.exe</code>和<code>frps.ini</code>。</li>
-</ol>
+</ul>
 
 <p>注意一下这两个文件的位置，个人的摆放位置是：<code>/usr/local/bin/frps/frps.exe</code>和<code>/etc/frp/frps.ini</code>，另外把<code>frps.service</code>里面对应的内容修改。</p>
 
@@ -175,13 +175,13 @@
    systemd start frps
 </code></pre>
 
-<ol>
+<ul>
 <li><p>客户端，即需要远程控制的内网主机，使用对应的客户端文件：<code>frpc.exe</code>和<code>frpc.ini</code>，打开<code>frpc.ini</code>进行配置：</p>
 
 <pre><code class="language-bash">[common]
 server_addr = 服务器ip地址
 server_port = 服务器配置的bind_port
-   
+
 [rdp]
 type = tcp
 local_ip = 127.0.0.1
@@ -189,16 +189,16 @@ local_port = 3389
 remote_port = 选择一个连接端口
 custom_domains = 选择一个连接域名
 </code></pre></li>
-</ol>
+</ul>
 
 <p>配置完成，直接运行：</p>
 
-<pre><code class="language-bash">   frpc.exe -c frpc.ini
+<pre><code class="language-bash">frpc.exe -c frpc.ini
 </code></pre>
 
-<ol>
+<ul>
 <li>在自己的机器上远程控制内网机器：直接使用windows的远程控制桌面即可，输入<code>custom_domains:remote_port</code>即可。</li>
-</ol>
+</ul>
 
     </div>
 
