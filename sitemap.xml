@@ -4,7 +4,7 @@
     <url>
       <loc>https://caxavault.online/categories/</loc>
       
-      <lastmod>2019-10-18T17:20:04+08:00</lastmod>
+      <lastmod>2019-11-03T13:45:13+08:00</lastmod>
       
       
       
@@ -16,7 +16,7 @@
     <url>
       <loc>https://caxavault.online/categories/linux/</loc>
       
-      <lastmod>2019-10-18T17:20:04+08:00</lastmod>
+      <lastmod>2019-11-03T13:45:13+08:00</lastmod>
       
       
       
@@ -28,7 +28,7 @@
     <url>
       <loc>https://caxavault.online/posts/</loc>
       
-      <lastmod>2019-10-18T17:20:04+08:00</lastmod>
+      <lastmod>2019-11-03T13:45:13+08:00</lastmod>
       
       
       
@@ -40,7 +40,7 @@
     <url>
       <loc>https://caxavault.online/tags/</loc>
       
-      <lastmod>2019-10-18T17:20:04+08:00</lastmod>
+      <lastmod>2019-11-03T13:45:13+08:00</lastmod>
       
       
       
@@ -52,7 +52,7 @@
     <url>
       <loc>https://caxavault.online/tags/centos/</loc>
       
-      <lastmod>2019-10-18T17:20:04+08:00</lastmod>
+      <lastmod>2019-11-03T13:45:13+08:00</lastmod>
       
       
       
@@ -64,11 +64,21 @@
     <url>
       <loc>https://caxavault.online/</loc>
       
-      <lastmod>2019-10-18T17:20:04+08:00</lastmod>
+      <lastmod>2019-11-03T13:45:13+08:00</lastmod>
       
       
       
       <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://caxavault.online/2019/007/</loc>
+      
+      <lastmod>2019-11-03T13:45:13+08:00</lastmod>
+      
+      
       
       
     </url>
