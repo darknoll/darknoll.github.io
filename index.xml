@@ -231,7 +231,7 @@ systemctl start v2ray
 
 &lt;p&gt;手动运行caddy：&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;caddy -conf /etc/caddy/caddy.config
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;caddy -conf /etc/caddy/Caddyfile
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;把caddy配置成服务（嫌麻烦直接进入/etc/systemd/system/caddy.service修改www-data为root）&lt;/p&gt;
@@ -891,7 +891,7 @@ echo $callback.&amp;quot;({&#39;id&#39;:1,&#39;name&#39;:&#39;missfresh&#39;})&a
     </item>
     
     <item>
-      <title>Darknoll</title>
+      <title>yyc</title>
       <link>https://caxavault.online/about/</link>
       <pubDate>Wed, 14 Aug 2019 10:28:04 +0800</pubDate>
       
