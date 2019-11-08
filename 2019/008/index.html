@@ -9,9 +9,9 @@
   
   
   
-  <link rel="prev" href="https://caxavault.online/2019/006/" />
-  <link rel="next" href="https://caxavault.online/2019/008/" />
-  <link rel="canonical" href="https://caxavault.online/2019/007/" />
+  <link rel="prev" href="https://caxavault.online/2019/007/" />
+  
+  <link rel="canonical" href="https://caxavault.online/2019/008/" />
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
@@ -22,10 +22,10 @@
   <title>
        
        
-           使用frp进行内网穿透 | yyc`s Blog
+           在centos7上安装python3 | yyc`s Blog
        
   </title>
-  <meta name="title" content="使用frp进行内网穿透 | yyc`s Blog">
+  <meta name="title" content="在centos7上安装python3 | yyc`s Blog">
     
   
   <link rel="stylesheet" href="/font/iconfont.css">
@@ -44,9 +44,9 @@
          "@id": "https:\/\/caxavault.online"
     },
     "articleSection" : "posts",
-    "name" : "使用frp进行内网穿透",
-    "headline" : "使用frp进行内网穿透",
-    "description" : "在很多时候，我们帮助客户解决问题的时候，需要远程他们的电脑。之前常用的远程控制工具，比如teamviewer、向日葵等，变得越来越难用，速度",
+    "name" : "在centos7上安装python3",
+    "headline" : "在centos7上安装python3",
+    "description" : "centos7上默认安装的python版本是2.7， 实在是太旧了，需要另外安装一个python3，过去常用的方法是源码编译安装，然后使用软链",
     "inLanguage" : "zh-cn",
     "author" : "yyc",
     "creator" : "yyc",
@@ -54,10 +54,10 @@
     "accountablePerson" : "yyc",
     "copyrightHolder" : "yyc",
     "copyrightYear" : "2019",
-    "datePublished": "2019-11-03 13:45:13 \x2b0800 CST",
-    "dateModified" : "2019-11-03 13:45:13 \x2b0800 CST",
-    "url" : "https:\/\/caxavault.online\/2019\/007\/",
-    "wordCount" : "592",
+    "datePublished": "2019-11-08 11:01:57 \x2b0800 CST",
+    "dateModified" : "2019-11-08 11:01:57 \x2b0800 CST",
+    "url" : "https:\/\/caxavault.online\/2019\/008\/",
+    "wordCount" : "225",
     "keywords" : [ "centos", "yyc`s Blog"]
 }
 </script>
@@ -116,11 +116,11 @@
       		
 <article class="post-warp" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">使用frp进行内网穿透</h1>
+        <h1 class="post-title" itemprop="name headline">在centos7上安装python3</h1>
         <div class="post-meta">
                 Written by <a itemprop="name" href="https://caxavault.online" rel="author">yyc</a>
                 <span class="post-time">
-                on <time datetime=2019-11-03 itemprop="datePublished">November 3, 2019</time>
+                on <time datetime=2019-11-08 itemprop="datePublished">November 8, 2019</time>
                 </span>
                 in
                 <i class="iconfont icon-folder"></i>
@@ -148,56 +148,39 @@
 
           
 
-<p><strong>在很多时候，我们帮助客户解决问题的时候，需要远程他们的电脑。之前常用的远程控制工具，比如<code>teamviewer</code>、<code>向日葵</code>等，变得越来越难用，速度越来越慢（<del>除非充值</del>）。所以还是自己用自己的VPS和内网穿透工具搭建一个远程控制的环境较好。</strong></p>
-
-<h3 id="vps主机端口选择">vps主机端口选择</h3>
-
-<p>因为可能需要远程多台电脑，所以建议在vps的安全组里面开启一段连续的端口号，比如40000-45000。</p>
-
-<h3 id="frp的安装">frp的安装</h3>
+<h3 id="centos7上默认安装的python版本是2-7-实在是太旧了-需要另外安装一个python3-过去常用的方法是源码编译安装-然后使用软链接到python3-有些麻烦-本文使用yum源scl来安装-方便快捷"><strong>centos7上默认安装的python版本是2.7， 实在是太旧了，需要另外安装一个python3，过去常用的方法是源码编译安装，然后使用软链接到python3，有些麻烦，本文使用yum源scl来安装，方便快捷</strong>。</h3>
 
 <ul>
-<li>服务端，也就是你的vps主机，需要安装frps，主要就是两个文件：<code>frps.exe</code>和<code>frps.ini</code>。</li>
-</ul>
+<li><p>安装scl：</p>
 
-<p>注意一下这两个文件的位置，个人的摆放位置是：<code>/usr/local/bin/frps/frps.exe</code>和<code>/etc/frp/frps.ini</code>，另外把<code>frps.service</code>里面对应的内容修改。</p>
-
-<p>选择一个端口用于和内网机器交互：</p>
-
-<pre><code class="language-bash">   [common]
-   bind_port = 选择一个端口（1024-49151）
-</code></pre>
-
-<p>配置改完之后，用<code>systemd</code>运行服务：</p>
-
-<pre><code class="language-bash">   cp systemd/frps.service /usr/lib/systemd/system
-   systemd enable frps
-   systemd start frps
-</code></pre>
-
-<ul>
-<li><p>客户端，即需要远程控制的内网主机，使用对应的客户端文件：<code>frpc.exe</code>和<code>frpc.ini</code>，打开<code>frpc.ini</code>进行配置：</p>
-
-<pre><code class="language-bash">[common]
-server_addr = 服务器ip地址
-server_port = 服务器配置的bind_port
-
-[rdp]
-type = tcp
-local_ip = 127.0.0.1
-local_port = 3389
-remote_port = 选择一个连接端口
-custom_domains = 选择一个连接域名
+<pre><code class="language-bash">sudo yum install centos-release-scl
 </code></pre></li>
-</ul>
 
-<p>配置完成，直接运行：</p>
+<li><p>检查scl中支持的python3版本：<a href="https://www.softwarecollections.org/en/scls/" rel="nofollow noreferrer" target="_blank">这个地址</a></p></li>
 
-<pre><code class="language-bash">frpc.exe -c frpc.ini
-</code></pre>
+<li><p>安装选定版本的python3：</p>
 
-<ul>
-<li>在自己的机器上远程控制内网机器：直接使用windows的远程控制桌面即可，输入<code>custom_domains:remote_port</code>即可。</li>
+<pre><code class="language-bash">sudo yum install rh-python36
+</code></pre></li>
+
+<li><p>bash中默认使用新版python：</p>
+
+<pre><code class="language-bash">scl enable rh-python36 bash
+</code></pre></li>
+
+<li><p>安装开发工具：</p>
+
+<pre><code class="language-bash">sudo yum groupinstall 'Development Tools'
+</code></pre></li>
+
+<li><p>检查下python、pip版本，创建虚拟环境：</p>
+
+<pre><code class="language-bash">python --version
+pip --version
+python -m venv venv
+source venv/bin/activate
+deactivate
+</code></pre></li>
 </ul>
 
     </div>
@@ -213,7 +196,7 @@ custom_domains = 选择一个连接域名
          
         <p class="copyright-item">
                 <span>Link:</span>
-                <a href=https://caxavault.online/2019/007/>https://caxavault.online/2019/007/</span>
+                <a href=https://caxavault.online/2019/008/>https://caxavault.online/2019/008/</span>
         </p>
         
          
@@ -242,10 +225,8 @@ custom_domains = 选择一个连接域名
 
     <div class="post-nav">
         
-        <a href="https://caxavault.online/2019/006/" class="prev" rel="prev" title="梯子安装指南"><i class="iconfont icon-left"></i>&nbsp;梯子安装指南</a>
+        <a href="https://caxavault.online/2019/007/" class="prev" rel="prev" title="使用frp进行内网穿透"><i class="iconfont icon-left"></i>&nbsp;使用frp进行内网穿透</a>
          
-        
-        <a href="https://caxavault.online/2019/008/" class="next" rel="next" title="在centos7上安装python3">在centos7上安装python3&nbsp;<i class="iconfont icon-right"></i></a>
         
     </div>
 

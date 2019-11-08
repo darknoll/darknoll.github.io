@@ -5,8 +5,53 @@
     <description>Recent content in yyc`s Blog on yyc`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 03 Nov 2019 13:45:13 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 08 Nov 2019 11:01:57 +0800</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>在centos7上安装python3</title>
+      <link>https://caxavault.online/2019/008/</link>
+      <pubDate>Fri, 08 Nov 2019 11:01:57 +0800</pubDate>
+      
+      <guid>https://caxavault.online/2019/008/</guid>
+      <description>
+
+&lt;h3 id=&#34;centos7上默认安装的python版本是2-7-实在是太旧了-需要另外安装一个python3-过去常用的方法是源码编译安装-然后使用软链接到python3-有些麻烦-本文使用yum源scl来安装-方便快捷&#34;&gt;&lt;strong&gt;centos7上默认安装的python版本是2.7， 实在是太旧了，需要另外安装一个python3，过去常用的方法是源码编译安装，然后使用软链接到python3，有些麻烦，本文使用yum源scl来安装，方便快捷&lt;/strong&gt;。&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;安装scl：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;sudo yum install centos-release-scl
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;检查scl中支持的python3版本：&lt;a href=&#34;https://www.softwarecollections.org/en/scls/&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;这个地址&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;安装选定版本的python3：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;sudo yum install rh-python36
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;bash中默认使用新版python：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;scl enable rh-python36 bash
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;安装开发工具：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;sudo yum groupinstall &#39;Development Tools&#39;
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;检查下python、pip版本，创建虚拟环境：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;python --version
+pip --version
+python -m venv venv
+source venv/bin/activate
+deactivate
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
     
     <item>
       <title>使用frp进行内网穿透</title>

@@ -6,10 +6,19 @@
     <description>Recent content in Linux on yyc`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 03 Nov 2019 13:45:13 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 08 Nov 2019 11:01:57 +0800</lastBuildDate>
     
 	<atom:link href="https://caxavault.online/categories/linux/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>在centos7上安装python3</title>
+      <link>https://caxavault.online/2019/008/</link>
+      <pubDate>Fri, 08 Nov 2019 11:01:57 +0800</pubDate>
+      
+      <guid>https://caxavault.online/2019/008/</guid>
+      <description>centos7上默认安装的python版本是2.7， 实在是太旧了，需要另外安装一个python3，过去常用的方法是源码编译安装，然后使用软链</description>
+    </item>
     
     <item>
       <title>使用frp进行内网穿透</title>
