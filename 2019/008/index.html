@@ -57,7 +57,7 @@
     "datePublished": "2019-11-08 11:01:57 \x2b0800 CST",
     "dateModified" : "2019-11-08 11:01:57 \x2b0800 CST",
     "url" : "https:\/\/caxavault.online\/2019\/008\/",
-    "wordCount" : "225",
+    "wordCount" : "249",
     "keywords" : [ "centos", "yyc`s Blog"]
 }
 </script>
@@ -167,7 +167,14 @@
 
 <pre><code class="language-bash">scl enable rh-python36 bash
 </code></pre></li>
+</ul>
 
+<p>写入到<code>~/.bash_profile</code>中：</p>
+
+<pre><code class="language-bash">  source scl_source enable rh-python36
+</code></pre>
+
+<ul>
 <li><p>安装开发工具：</p>
 
 <pre><code class="language-bash">sudo yum groupinstall 'Development Tools'

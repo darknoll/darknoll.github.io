@@ -35,7 +35,14 @@
 
 &lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;scl enable rh-python36 bash
 &lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
+&lt;p&gt;写入到&lt;code&gt;~/.bash_profile&lt;/code&gt;中：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;  source scl_source enable rh-python36
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
 &lt;li&gt;&lt;p&gt;安装开发工具：&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;sudo yum groupinstall &#39;Development Tools&#39;
