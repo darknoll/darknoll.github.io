@@ -113,7 +113,7 @@ custom_domains = 选择一个连接域名
 
 &lt;p&gt;配置完成，直接运行：&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;frpc.exe -c frpc.ini
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;   frpc.exe -c frpc.ini
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;ul&gt;
