@@ -57,7 +57,7 @@
     "datePublished": "2019-10-18 17:20:04 \x2b0800 CST",
     "dateModified" : "2019-10-18 17:20:04 \x2b0800 CST",
     "url" : "https:\/\/caxavault.online\/2019\/006\/",
-    "wordCount" : "1573",
+    "wordCount" : "1918",
     "keywords" : [ "centos", "yyc`s Blog"]
 }
 </script>
@@ -393,6 +393,87 @@ sudo systemctl status caddy.service # 查看 caddy 状态
 <h3 id="套cdn">套CDN</h3>
 
 <p>使用CloudFlare就可以了，可以参考其他网络教程。</p>
+
+<hr />
+
+<h3 id="在linux客户端上访问外网">在Linux客户端上访问外网</h3>
+
+<p>首先安装<code>v2ray</code>，整个过程和服务端上一样，只是配置是客户端的而已，如果嫌麻烦，可以把<code>v2rayN</code>上的一个配置复制过来，但是这里需要注意的是<strong>inbounds</strong>里面需要手动配置下http的代理端口（<code>v2rayN</code>工具是自带<code>privoxy</code>将<code>socks5代理</code>转为<code>http代理</code>的）：</p>
+
+<pre><code class="language-bash">...
+&quot;inbounds&quot;: [
+    {
+      &quot;tag&quot;: &quot;proxy&quot;,
+      &quot;port&quot;: socks5代理端口,
+      &quot;listen&quot;: &quot;127.0.0.1&quot;,
+      &quot;protocol&quot;: &quot;socks&quot;,
+      &quot;sniffing&quot;: {
+        &quot;enabled&quot;: true,
+        &quot;destOverride&quot;: [
+          &quot;http&quot;,
+          &quot;tls&quot;
+        ]
+      },
+      &quot;settings&quot;: {
+        &quot;auth&quot;: &quot;noauth&quot;,
+        &quot;udp&quot;: true,
+        &quot;ip&quot;: null,
+        &quot;address&quot;: null,
+        &quot;clients&quot;: null
+      },
+      &quot;streamSettings&quot;: null
+    },
+    {
+      &quot;port&quot;: http代理端口,
+      &quot;protocol&quot;: &quot;http&quot;,
+      &quot;settings&quot;: {},
+      &quot;tag&quot;: &quot;proxy-http&quot;
+    }
+  ],
+  &quot;outbounds&quot;: [
+    {
+      &quot;tag&quot;: &quot;proxy&quot;,
+      &quot;protocol&quot;: &quot;vmess&quot;,
+      &quot;settings&quot;: {
+        &quot;vnext&quot;: [
+          {
+            &quot;address&quot;: &quot;服务端域名&quot;,
+            &quot;port&quot;: 443,
+            &quot;users&quot;: [
+              {
+                &quot;id&quot;: &quot;填写正确的用户ID&quot;,
+                &quot;alterId&quot;: 0,
+                &quot;security&quot;: &quot;auto&quot;
+              }
+            ]
+          }
+        ],
+        &quot;servers&quot;: null,
+        &quot;response&quot;: null
+      },
+      &quot;streamSettings&quot;: {
+        &quot;network&quot;: &quot;ws&quot;,
+        &quot;security&quot;: &quot;tls&quot;,
+        &quot;tlsSettings&quot;: {
+          &quot;allowInsecure&quot;: true,
+          &quot;serverName&quot;: null
+        },
+        &quot;tcpSettings&quot;: null,
+        &quot;kcpSettings&quot;: null,
+        &quot;wsSettings&quot;: {
+          &quot;connectionReuse&quot;: true,
+          &quot;path&quot;: &quot;/配置好的路径&quot;,
+          &quot;headers&quot;: null
+        },
+        &quot;httpSettings&quot;: null,
+        &quot;quicSettings&quot;: null
+      },
+      &quot;mux&quot;: {
+        &quot;enabled&quot;: true
+      }
+    },
+    ...
+</code></pre>
 
     </div>
 

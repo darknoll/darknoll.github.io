@@ -375,6 +375,87 @@ sudo systemctl status caddy.service # 查看 caddy 状态
 &lt;h3 id=&#34;套cdn&#34;&gt;套CDN&lt;/h3&gt;
 
 &lt;p&gt;使用CloudFlare就可以了，可以参考其他网络教程。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&#34;在linux客户端上访问外网&#34;&gt;在Linux客户端上访问外网&lt;/h3&gt;
+
+&lt;p&gt;首先安装&lt;code&gt;v2ray&lt;/code&gt;，整个过程和服务端上一样，只是配置是客户端的而已，如果嫌麻烦，可以把&lt;code&gt;v2rayN&lt;/code&gt;上的一个配置复制过来，但是这里需要注意的是&lt;strong&gt;inbounds&lt;/strong&gt;里面需要手动配置下http的代理端口（&lt;code&gt;v2rayN&lt;/code&gt;工具是自带&lt;code&gt;privoxy&lt;/code&gt;将&lt;code&gt;socks5代理&lt;/code&gt;转为&lt;code&gt;http代理&lt;/code&gt;的）：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;...
+&amp;quot;inbounds&amp;quot;: [
+    {
+      &amp;quot;tag&amp;quot;: &amp;quot;proxy&amp;quot;,
+      &amp;quot;port&amp;quot;: socks5代理端口,
+      &amp;quot;listen&amp;quot;: &amp;quot;127.0.0.1&amp;quot;,
+      &amp;quot;protocol&amp;quot;: &amp;quot;socks&amp;quot;,
+      &amp;quot;sniffing&amp;quot;: {
+        &amp;quot;enabled&amp;quot;: true,
+        &amp;quot;destOverride&amp;quot;: [
+          &amp;quot;http&amp;quot;,
+          &amp;quot;tls&amp;quot;
+        ]
+      },
+      &amp;quot;settings&amp;quot;: {
+        &amp;quot;auth&amp;quot;: &amp;quot;noauth&amp;quot;,
+        &amp;quot;udp&amp;quot;: true,
+        &amp;quot;ip&amp;quot;: null,
+        &amp;quot;address&amp;quot;: null,
+        &amp;quot;clients&amp;quot;: null
+      },
+      &amp;quot;streamSettings&amp;quot;: null
+    },
+    {
+      &amp;quot;port&amp;quot;: http代理端口,
+      &amp;quot;protocol&amp;quot;: &amp;quot;http&amp;quot;,
+      &amp;quot;settings&amp;quot;: {},
+      &amp;quot;tag&amp;quot;: &amp;quot;proxy-http&amp;quot;
+    }
+  ],
+  &amp;quot;outbounds&amp;quot;: [
+    {
+      &amp;quot;tag&amp;quot;: &amp;quot;proxy&amp;quot;,
+      &amp;quot;protocol&amp;quot;: &amp;quot;vmess&amp;quot;,
+      &amp;quot;settings&amp;quot;: {
+        &amp;quot;vnext&amp;quot;: [
+          {
+            &amp;quot;address&amp;quot;: &amp;quot;服务端域名&amp;quot;,
+            &amp;quot;port&amp;quot;: 443,
+            &amp;quot;users&amp;quot;: [
+              {
+                &amp;quot;id&amp;quot;: &amp;quot;填写正确的用户ID&amp;quot;,
+                &amp;quot;alterId&amp;quot;: 0,
+                &amp;quot;security&amp;quot;: &amp;quot;auto&amp;quot;
+              }
+            ]
+          }
+        ],
+        &amp;quot;servers&amp;quot;: null,
+        &amp;quot;response&amp;quot;: null
+      },
+      &amp;quot;streamSettings&amp;quot;: {
+        &amp;quot;network&amp;quot;: &amp;quot;ws&amp;quot;,
+        &amp;quot;security&amp;quot;: &amp;quot;tls&amp;quot;,
+        &amp;quot;tlsSettings&amp;quot;: {
+          &amp;quot;allowInsecure&amp;quot;: true,
+          &amp;quot;serverName&amp;quot;: null
+        },
+        &amp;quot;tcpSettings&amp;quot;: null,
+        &amp;quot;kcpSettings&amp;quot;: null,
+        &amp;quot;wsSettings&amp;quot;: {
+          &amp;quot;connectionReuse&amp;quot;: true,
+          &amp;quot;path&amp;quot;: &amp;quot;/配置好的路径&amp;quot;,
+          &amp;quot;headers&amp;quot;: null
+        },
+        &amp;quot;httpSettings&amp;quot;: null,
+        &amp;quot;quicSettings&amp;quot;: null
+      },
+      &amp;quot;mux&amp;quot;: {
+        &amp;quot;enabled&amp;quot;: true
+      }
+    },
+    ...
+&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     
