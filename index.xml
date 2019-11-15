@@ -28,7 +28,7 @@ make
 make install
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;设置下&lt;code&gt;aria2&lt;/code&gt;的配置文件，并保存到&lt;code&gt;/etc/aria2/aria2.conf&lt;/code&gt;：&lt;/p&gt;
+&lt;p&gt;设置下&lt;code&gt;aria2&lt;/code&gt;的配置文件，并保存到&lt;code&gt;/etc/aria2/aria2.conf&lt;/code&gt;,&lt;strong&gt;注意使用的时候要把注释去掉&lt;/strong&gt;：&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;dir=选择自己的下载目录   #下载目录
 max-concurrent-downloads=3    #最多同时下载3个任务
