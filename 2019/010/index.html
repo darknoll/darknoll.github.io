@@ -9,9 +9,9 @@
   
   
   
-  <link rel="prev" href="https://caxavault.online/2019/008/" />
-  <link rel="next" href="https://caxavault.online/2019/010/" />
-  <link rel="canonical" href="https://caxavault.online/2019/009/" />
+  <link rel="prev" href="https://caxavault.online/2019/009/" />
+  
+  <link rel="canonical" href="https://caxavault.online/2019/010/" />
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
@@ -22,10 +22,10 @@
   <title>
        
        
-           Nginx的安装和使用 | yyc`s Blog
+           制作一个离线下载环境 | yyc`s Blog
        
   </title>
-  <meta name="title" content="Nginx的安装和使用 | yyc`s Blog">
+  <meta name="title" content="制作一个离线下载环境 | yyc`s Blog">
     
   
   <link rel="stylesheet" href="/font/iconfont.css">
@@ -44,9 +44,9 @@
          "@id": "https:\/\/caxavault.online"
     },
     "articleSection" : "posts",
-    "name" : "Nginx的安装和使用",
-    "headline" : "Nginx的安装和使用",
-    "description" : "Nginx的安装 本文在centos7环境下，使用源码编译和安装nginx。 在安装·nginx之前，首先安装一些必要的依赖： yum update yum -y install pcre pcre-devel zlib zlib-devel",
+    "name" : "制作一个离线下载环境",
+    "headline" : "制作一个离线下载环境",
+    "description" : "aria2的安装和使用 源码编译和安装：在aria2的github主页上，在其中的Releases里面找到源码并下载，进行如下操作： wget https:\/\/github.com\/aria2\/aria2\/releases\/download\/release-1.35.0\/aria2-1.35.0.tar.gz tar -zxvf aria2-1.35.0",
     "inLanguage" : "zh-cn",
     "author" : "yyc",
     "creator" : "yyc",
@@ -54,10 +54,10 @@
     "accountablePerson" : "yyc",
     "copyrightHolder" : "yyc",
     "copyrightYear" : "2019",
-    "datePublished": "2019-11-15 13:36:02 \x2b0800 CST",
-    "dateModified" : "2019-11-15 13:36:02 \x2b0800 CST",
-    "url" : "https:\/\/caxavault.online\/2019\/009\/",
-    "wordCount" : "567",
+    "datePublished": "2019-11-15 14:31:31 \x2b0800 CST",
+    "dateModified" : "2019-11-15 14:31:31 \x2b0800 CST",
+    "url" : "https:\/\/caxavault.online\/2019\/010\/",
+    "wordCount" : "459",
     "keywords" : [ "centos", "yyc`s Blog"]
 }
 </script>
@@ -116,7 +116,7 @@
       		
 <article class="post-warp" itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">Nginx的安装和使用</h1>
+        <h1 class="post-title" itemprop="name headline">制作一个离线下载环境</h1>
         <div class="post-meta">
                 Written by <a itemprop="name" href="https://caxavault.online" rel="author">yyc</a>
                 <span class="post-time">
@@ -148,153 +148,64 @@
 
           
 
-<h3 id="nginx的安装">Nginx的安装</h3>
+<h3 id="aria2的安装和使用">aria2的安装和使用</h3>
 
-<p>本文在<code>centos7</code>环境下，使用源码编译和安装<code>nginx</code>。</p>
+<p><strong>源码编译和安装</strong>：在<code>aria2</code>的<code>github</code>主页上，在其中的<code>Releases</code>里面找到源码并下载，进行如下操作：</p>
 
-<p>在安装·<code>nginx</code>之前，首先安装一些必要的依赖：</p>
-
-<pre><code class="language-bash">yum update
-yum -y install pcre pcre-devel zlib zlib-devel openssl openssl-devel
-</code></pre>
-
-<p>到<a href="https://nginx.org/en/download.html" rel="nofollow noreferrer" target="_blank">官网下载页面</a>选择一个稳定的<code>nginx</code>版本，下载、解压：</p>
-
-<pre><code class="language-bash">wget https://nginx.org/download/nginx-1.16.1.tar.gz
-tar -zxvf nginx-1.16.1.tar.gz
-</code></pre>
-
-<p>配置、编译、安装：</p>
-
-<pre><code class="language-bash">cd nginx-1.16.1
-./configure \
---prefix=/usr/local/nginx \
---with-http_ssl_module \
---with-http_stub_status_module \
---with-http_realip_module \
---with-threads
-make
+<pre><code class="language-bash">wget https://github.com/aria2/aria2/releases/download/release-1.35.0/aria2-1.35.0.tar.gz
+tar -zxvf aria2-1.35.0
+cd aria2-1.35.0
+./configure --prefix=/usr/local/aria2
+make 
 make install
 </code></pre>
 
-<p>设置软链接：</p>
+<p>设置下<code>aria2</code>的配置文件，并保存到<code>/etc/aria2/aria2.conf</code>：</p>
 
-<pre><code class="language-bash">ln -s /usr/local/nginx/sbin/nginx /usr/bin/nginx
+<pre><code class="language-bash">dir=选择自己的下载目录   #下载目录
+max-concurrent-downloads=3    #最多同时下载3个任务
+input-file=/data/wwwroot/download/aria2.session    #从会话文件中读取下载任务
+save-session=/etc/aria2/aria2.session    #在Aria2退出时保存`错误/未完成`的下载任务到会话文件
+save-session-interval=60    #定时保存会话, 0为退出时才保存, 需1.16.1以上版本, 默认:0
+enable-rpc=true    #启用RPC,这样就能通过WebUI进行下载管理
+rpc-allow-origin-all=true    #允许所有来源
+rpc-listen-all=true    #允许非外部访问, 默认:false
+rpc-secret=&lt;TOKEN&gt;    #设置密码
 </code></pre>
 
-<p>测试：</p>
+<p>在<code>usr/lib/systemd/system</code>下创建一个名为<code>aria2c.service</code>的配置文件：</p>
 
-<pre><code class="language-bash">curl localhost
+<pre><code class="language-bash">[Unit]
+Description=Aria2c Download Manager
+After=network.target
+
+[Service]
+Type=simple
+User=root
+ExecStart=/usr/local/aria2/bin/aria2c --conf-path=/etc/aria2/aria2.conf
+
+[Install]
+WantedBy=multi-user.target
 </code></pre>
 
-<h3 id="nginx的配置">Nginx的配置</h3>
+<p>按照<code>systemd</code>命令操作<code>aria2服务</code>。</p>
 
-<ul>
-<li>在<code>/var</code>下创建文件夹<code>www</code>用于存放各个网站内容</li>
-<li>在<code>/usr/local/nginx</code>下创建一个<code>sites-enabled</code>的目录，用于存放各个网站的配置信息。</li>
-</ul>
+<h3 id="ariang的安装和使用">ariang的安装和使用</h3>
 
-<p>在<code>1.16.1</code>版本下，<code>nginx</code>的默认配置文件位置是：<code>/usr/local/nginx/conf/nginx.conf</code>，，</p>
+<p>和<code>aria2</code>一样，直接到该项目的<code>github</code>主页下载最新的源码：</p>
 
-<p>比如，我现在想创建一个域名为<code>mall.com</code>的网站，那么应该存在的目录结构为：</p>
-
-<pre><code class="language-bash">cd /var/www/mall.com
-cd /usr/local/nginx/sites-enabled/mall.com.conf
+<pre><code class="language-bash">wget https://github.com/mayswind/AriaNg/releases/download/1.1.4/AriaNg-1.1.4.zip
 </code></pre>
 
-<p><code>mall.com</code>的内容基本上就是一个静态网站，根目录包含<code>index.html</code>网页之类。</p>
-
-<p><code>mall.com.conf</code>的格式如下：</p>
+<p>下载完后解压到<code>/var/www</code>目录下，并在<code>nginx</code>中配置运行：</p>
 
 <pre><code class="language-bash">server {
-	listen 443 ssl http2;
-	listen [::]:443 ssl http2;
-
-	server_name mall.com;
-	root /var/www/mall.com/public;
-
-	# SSL
-	ssl_certificate /etc/letsencrypt/live/mall.com/fullchain.pem;
-	ssl_certificate_key /etc/letsencrypt/live/mall.com/privkey.pem;
-	ssl_trusted_certificate /etc/letsencrypt/live/mall.com/chain.pem;
-
-	# security
-	include nginxconfig.io/security.conf;
-
-	# index.html fallback
-	location / {
-		try_files $uri $uri/ /index.html;
-	}
-
-	# additional config
-	include nginxconfig.io/general.conf;
-}
-
-# HTTP redirect
-server {
-	listen 80;
-	listen [::]:80;
-
-	server_name mall.com;
-
-	include nginxconfig.io/letsencrypt.conf;
-
-	location / {
-		return 301 https://mall.com$request_uri;
-	}
-}
-</code></pre>
-
-<p>在默认的配置文件末尾加上：</p>
-
-<pre><code class="language-bash">user www-data;
-pid /run/nginx.pid;
-worker_processes auto;
-worker_rlimit_nofile 65535;
-
-events {
-	multi_accept on;
-	worker_connections 65535;
-}
-
-http {
-	charset utf-8;
-	sendfile on;
-	tcp_nopush on;
-	tcp_nodelay on;
-	server_tokens off;
-	log_not_found off;
-	types_hash_max_size 2048;
-	client_max_body_size 16M;
-
-	# MIME
-	include mime.types;
-	default_type application/octet-stream;
-
-	# logging
-	access_log /var/log/nginx/access.log;
-	error_log /var/log/nginx/error.log warn;
-
-	# SSL
-	ssl_session_timeout 1d;
-	ssl_session_cache shared:SSL:10m;
-	ssl_session_tickets off;
-
-	# Diffie-Hellman parameter for DHE ciphersuites
-	ssl_dhparam /etc/nginx/dhparam.pem;
-
-	# Mozilla Intermediate configuration
-	ssl_protocols TLSv1.2 TLSv1.3;
-	ssl_ciphers ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384;
-
-	# OCSP Stapling
-	ssl_stapling on;
-	ssl_stapling_verify on;
-	resolver 1.1.1.1 1.0.0.1 8.8.8.8 8.8.4.4 208.67.222.222 208.67.220.220 valid=60s;
-	resolver_timeout 2s;
-
-	# load configs
-	include ../sites-enabled/*;
+    listen 9090;
+    server_name _;
+    root /var/www/ariang;
+    location / {
+       index index.html
+    }
 }
 </code></pre>
 
@@ -311,7 +222,7 @@ http {
          
         <p class="copyright-item">
                 <span>Link:</span>
-                <a href=https://caxavault.online/2019/009/>https://caxavault.online/2019/009/</span>
+                <a href=https://caxavault.online/2019/010/>https://caxavault.online/2019/010/</span>
         </p>
         
          
@@ -340,10 +251,8 @@ http {
 
     <div class="post-nav">
         
-        <a href="https://caxavault.online/2019/008/" class="prev" rel="prev" title="在centos7上安装python3"><i class="iconfont icon-left"></i>&nbsp;在centos7上安装python3</a>
+        <a href="https://caxavault.online/2019/009/" class="prev" rel="prev" title="Nginx的安装和使用"><i class="iconfont icon-left"></i>&nbsp;Nginx的安装和使用</a>
          
-        
-        <a href="https://caxavault.online/2019/010/" class="next" rel="next" title="制作一个离线下载环境">制作一个离线下载环境&nbsp;<i class="iconfont icon-right"></i></a>
         
     </div>
 

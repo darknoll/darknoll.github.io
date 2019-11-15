@@ -6,10 +6,19 @@
     <description>Recent content in Linux on yyc`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 15 Nov 2019 13:36:02 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 15 Nov 2019 14:31:31 +0800</lastBuildDate>
     
 	<atom:link href="https://caxavault.online/categories/linux/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>制作一个离线下载环境</title>
+      <link>https://caxavault.online/2019/010/</link>
+      <pubDate>Fri, 15 Nov 2019 14:31:31 +0800</pubDate>
+      
+      <guid>https://caxavault.online/2019/010/</guid>
+      <description>aria2的安装和使用 源码编译和安装：在aria2的github主页上，在其中的Releases里面找到源码并下载，进行如下操作： wget https://github.com/aria2/aria2/releases/download/release-1.35.0/aria2-1.35.0.tar.gz tar -zxvf aria2-1.35.0</description>
+    </item>
     
     <item>
       <title>Nginx的安装和使用</title>
