@@ -5,8 +5,61 @@
     <description>Recent content in yyc`s Blog on yyc`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 15 Nov 2019 14:31:31 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 15 Nov 2019 16:16:34 +0800</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Vim配置</title>
+      <link>https://caxavault.online/2019/011/</link>
+      <pubDate>Fri, 15 Nov 2019 16:16:34 +0800</pubDate>
+      
+      <guid>https://caxavault.online/2019/011/</guid>
+      <description>
+
+&lt;h3 id=&#34;安装vim-plug&#34;&gt;安装Vim-Plug:&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;在-vimrc-中配置插件&#34;&gt;在&lt;code&gt;~/.vimrc&lt;/code&gt;中配置插件：&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;call plug#begin(&#39;~/.vim/plugged&#39;)
+	Plug &#39;vim-airline/vim-airline&#39;
+	Plug &#39;scrooloose/nerdtree&#39;
+	Plug &#39;flazz/vim-colorschemes&#39;
+	Plug &#39;fatih/vim-go&#39;, { &#39;do&#39;: &#39;:GoUpdateBinaries&#39; }
+	Plug &#39;Raimondi/delimitMate&#39;
+call plug#end()
+
+colorscheme molokai
+map &amp;lt;F2&amp;gt; :NERDTreeToggle&amp;lt;CR&amp;gt;
+map &amp;lt;F3&amp;gt; :NERDTreeFind&amp;lt;CR&amp;gt;
+autocmd bufenter * if (winnr(&amp;quot;$&amp;quot;) == 1 &amp;amp;&amp;amp; exists(&amp;quot;b:NERDTree&amp;quot;) &amp;amp;&amp;amp; b:NERDTree.isTabTree()) | q | endif
+
+set nocompatible
+set nu
+set showmatch
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set noexpandtab
+set autoindent
+set backspace=indent,eol,start
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;vim-plug的常用命令&#34;&gt;Vim-plug的常用命令：&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;查看插件状态： PlugStatus&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;安装插件：PlugInstall&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;更新插件：PlugUpdate&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;清理插件：PlugClean&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
     
     <item>
       <title>制作一个离线下载环境</title>
