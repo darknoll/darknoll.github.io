@@ -57,7 +57,7 @@
     "datePublished": "2019-11-15 14:31:31 \x2b0800 CST",
     "dateModified" : "2019-11-15 14:31:31 \x2b0800 CST",
     "url" : "https:\/\/caxavault.online\/2019\/010\/",
-    "wordCount" : "473",
+    "wordCount" : "530",
     "keywords" : [ "centos", "yyc`s Blog"]
 }
 </script>
@@ -207,6 +207,27 @@ WantedBy=multi-user.target
        index index.html
     }
 }
+</code></pre>
+
+<h3 id="file-browser的安装和使用">file browser的安装和使用</h3>
+
+<p>根据官方教程：</p>
+
+<pre><code class="language-bash">curl -fsSL https://filebrowser.xyz/get.sh | bash
+</code></pre>
+
+<p>自己写一个<code>sytemd</code>文件：</p>
+
+<pre><code class="language-bash">[Unit]
+Description=File browser
+After=network.target
+
+[Service]
+User=root
+ExecStart=/usr/local/bin/filebrowser --database /root/filebrowser.db -p 9090 -r /opt/yyc -a 0.0.0.0
+
+[install]
+WantedBy=multi-user.target
 </code></pre>
 
     </div>

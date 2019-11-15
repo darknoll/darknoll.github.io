@@ -76,6 +76,27 @@ WantedBy=multi-user.target
     }
 }
 &lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;file-browser的安装和使用&#34;&gt;file browser的安装和使用&lt;/h3&gt;
+
+&lt;p&gt;根据官方教程：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;curl -fsSL https://filebrowser.xyz/get.sh | bash
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;自己写一个&lt;code&gt;sytemd&lt;/code&gt;文件：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;[Unit]
+Description=File browser
+After=network.target
+
+[Service]
+User=root
+ExecStart=/usr/local/bin/filebrowser --database /root/filebrowser.db -p 9090 -r /opt/yyc -a 0.0.0.0
+
+[install]
+WantedBy=multi-user.target
+&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     
