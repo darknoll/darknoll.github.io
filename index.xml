@@ -5,8 +5,183 @@
     <description>Recent content in yyc`s Blog on yyc`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 08 Nov 2019 11:01:57 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 15 Nov 2019 13:36:02 +0800</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Nginx的安装和使用</title>
+      <link>https://caxavault.online/2019/009/</link>
+      <pubDate>Fri, 15 Nov 2019 13:36:02 +0800</pubDate>
+      
+      <guid>https://caxavault.online/2019/009/</guid>
+      <description>
+
+&lt;h3 id=&#34;nginx的安装&#34;&gt;Nginx的安装&lt;/h3&gt;
+
+&lt;p&gt;本文在&lt;code&gt;centos7&lt;/code&gt;环境下，使用源码编译和安装&lt;code&gt;nginx&lt;/code&gt;。&lt;/p&gt;
+
+&lt;p&gt;在安装·&lt;code&gt;nginx&lt;/code&gt;之前，首先安装一些必要的依赖：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;yum update
+yum -y install pcre pcre-devel zlib zlib-devel openssl openssl-devel
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;到&lt;a href=&#34;https://nginx.org/en/download.html&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;官网下载页面&lt;/a&gt;选择一个稳定的&lt;code&gt;nginx&lt;/code&gt;版本，下载、解压：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;wget https://nginx.org/download/nginx-1.16.1.tar.gz
+tar -zxvf nginx-1.16.1.tar.gz
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;配置、编译、安装：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;cd nginx-1.16.1
+./configure \
+--prefix=/usr/local/nginx \
+--with-http_ssl_module \
+--with-http_stub_status_module \
+--with-http_realip_module \
+--with-threads
+make
+make install
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;设置软链接：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;ln -s /usr/local/nginx/sbin/nginx /usr/bin/nginx
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;测试：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;curl localhost
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;nginx的配置&#34;&gt;Nginx的配置&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;在&lt;code&gt;/var&lt;/code&gt;下创建文件夹&lt;code&gt;www&lt;/code&gt;用于存放各个网站内容&lt;/li&gt;
+&lt;li&gt;在&lt;code&gt;/usr/local/nginx&lt;/code&gt;下创建一个&lt;code&gt;sites-enabled&lt;/code&gt;的目录，用于存放各个网站的配置信息。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;在&lt;code&gt;1.16.1&lt;/code&gt;版本下，&lt;code&gt;nginx&lt;/code&gt;的默认配置文件位置是：&lt;code&gt;/usr/local/nginx/conf/nginx.conf&lt;/code&gt;，，&lt;/p&gt;
+
+&lt;p&gt;比如，我现在想创建一个端口号为&lt;code&gt;9090&lt;/code&gt;、域名为&lt;code&gt;mall.com&lt;/code&gt;的网站，那么应该存在的目录结构为：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;cd /var/www/mall.com
+cd /usr/local/nginx/sites-enabled/mall.com.conf
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;mall.com&lt;/code&gt;的内容基本上就是一个静态网站，根目录包含&lt;code&gt;index.html&lt;/code&gt;网页之类。&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;mall.com.conf&lt;/code&gt;的格式如下：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;server {
+	listen 443 ssl http2;
+	listen [::]:443 ssl http2;
+
+	server_name example.com;
+	root /var/www/example.com/public;
+
+	# SSL
+	ssl_certificate /etc/letsencrypt/live/example.com/fullchain.pem;
+	ssl_certificate_key /etc/letsencrypt/live/example.com/privkey.pem;
+	ssl_trusted_certificate /etc/letsencrypt/live/example.com/chain.pem;
+
+	# security
+	include nginxconfig.io/security.conf;
+
+	# index.html fallback
+	location / {
+		try_files $uri $uri/ /index.html;
+	}
+
+	# additional config
+	include nginxconfig.io/general.conf;
+}
+
+# subdomains redirect
+server {
+	listen 443 ssl http2;
+	listen [::]:443 ssl http2;
+
+	server_name *.example.com;
+
+	# SSL
+	ssl_certificate /etc/letsencrypt/live/example.com/fullchain.pem;
+	ssl_certificate_key /etc/letsencrypt/live/example.com/privkey.pem;
+	ssl_trusted_certificate /etc/letsencrypt/live/example.com/chain.pem;
+
+	return 301 https://example.com$request_uri;
+}
+
+# HTTP redirect
+server {
+	listen 80;
+	listen [::]:80;
+
+	server_name .example.com;
+
+	include nginxconfig.io/letsencrypt.conf;
+
+	location / {
+		return 301 https://example.com$request_uri;
+	}
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;在默认的配置文件末尾加上：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;user www-data;
+pid /run/nginx.pid;
+worker_processes auto;
+worker_rlimit_nofile 65535;
+
+events {
+	multi_accept on;
+	worker_connections 65535;
+}
+
+http {
+	charset utf-8;
+	sendfile on;
+	tcp_nopush on;
+	tcp_nodelay on;
+	server_tokens off;
+	log_not_found off;
+	types_hash_max_size 2048;
+	client_max_body_size 16M;
+
+	# MIME
+	include mime.types;
+	default_type application/octet-stream;
+
+	# logging
+	access_log /var/log/nginx/access.log;
+	error_log /var/log/nginx/error.log warn;
+
+	# SSL
+	ssl_session_timeout 1d;
+	ssl_session_cache shared:SSL:10m;
+	ssl_session_tickets off;
+
+	# Diffie-Hellman parameter for DHE ciphersuites
+	ssl_dhparam /etc/nginx/dhparam.pem;
+
+	# Mozilla Intermediate configuration
+	ssl_protocols TLSv1.2 TLSv1.3;
+	ssl_ciphers ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384;
+
+	# OCSP Stapling
+	ssl_stapling on;
+	ssl_stapling_verify on;
+	resolver 1.1.1.1 1.0.0.1 8.8.8.8 8.8.4.4 208.67.222.222 208.67.220.220 valid=60s;
+	resolver_timeout 2s;
+
+	# load configs
+	include ../sites-enabled/*;
+}
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
     
     <item>
       <title>在centos7上安装python3</title>

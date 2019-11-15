@@ -6,10 +6,19 @@
     <description>Recent content in Posts on yyc`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 08 Nov 2019 11:01:57 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 15 Nov 2019 13:36:02 +0800</lastBuildDate>
     
 	<atom:link href="https://caxavault.online/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Nginx的安装和使用</title>
+      <link>https://caxavault.online/2019/009/</link>
+      <pubDate>Fri, 15 Nov 2019 13:36:02 +0800</pubDate>
+      
+      <guid>https://caxavault.online/2019/009/</guid>
+      <description>Nginx的安装 本文在centos7环境下，使用源码编译和安装nginx。 在安装·nginx之前，首先安装一些必要的依赖： yum update yum -y install pcre pcre-devel zlib zlib-devel</description>
+    </item>
     
     <item>
       <title>在centos7上安装python3</title>
