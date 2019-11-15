@@ -57,7 +57,7 @@
     "datePublished": "2019-11-15 13:36:02 \x2b0800 CST",
     "dateModified" : "2019-11-15 13:36:02 \x2b0800 CST",
     "url" : "https:\/\/caxavault.online\/2019\/009\/",
-    "wordCount" : "603",
+    "wordCount" : "567",
     "keywords" : [ "centos", "yyc`s Blog"]
 }
 </script>
@@ -196,7 +196,7 @@ make install
 
 <p>在<code>1.16.1</code>版本下，<code>nginx</code>的默认配置文件位置是：<code>/usr/local/nginx/conf/nginx.conf</code>，，</p>
 
-<p>比如，我现在想创建一个端口号为<code>9090</code>、域名为<code>mall.com</code>的网站，那么应该存在的目录结构为：</p>
+<p>比如，我现在想创建一个域名为<code>mall.com</code>的网站，那么应该存在的目录结构为：</p>
 
 <pre><code class="language-bash">cd /var/www/mall.com
 cd /usr/local/nginx/sites-enabled/mall.com.conf
@@ -210,13 +210,13 @@ cd /usr/local/nginx/sites-enabled/mall.com.conf
 	listen 443 ssl http2;
 	listen [::]:443 ssl http2;
 
-	server_name example.com;
-	root /var/www/example.com/public;
+	server_name mall.com;
+	root /var/www/mall.com/public;
 
 	# SSL
-	ssl_certificate /etc/letsencrypt/live/example.com/fullchain.pem;
-	ssl_certificate_key /etc/letsencrypt/live/example.com/privkey.pem;
-	ssl_trusted_certificate /etc/letsencrypt/live/example.com/chain.pem;
+	ssl_certificate /etc/letsencrypt/live/mall.com/fullchain.pem;
+	ssl_certificate_key /etc/letsencrypt/live/mall.com/privkey.pem;
+	ssl_trusted_certificate /etc/letsencrypt/live/mall.com/chain.pem;
 
 	# security
 	include nginxconfig.io/security.conf;
@@ -230,32 +230,17 @@ cd /usr/local/nginx/sites-enabled/mall.com.conf
 	include nginxconfig.io/general.conf;
 }
 
-# subdomains redirect
-server {
-	listen 443 ssl http2;
-	listen [::]:443 ssl http2;
-
-	server_name *.example.com;
-
-	# SSL
-	ssl_certificate /etc/letsencrypt/live/example.com/fullchain.pem;
-	ssl_certificate_key /etc/letsencrypt/live/example.com/privkey.pem;
-	ssl_trusted_certificate /etc/letsencrypt/live/example.com/chain.pem;
-
-	return 301 https://example.com$request_uri;
-}
-
 # HTTP redirect
 server {
 	listen 80;
 	listen [::]:80;
 
-	server_name .example.com;
+	server_name mall.com;
 
 	include nginxconfig.io/letsencrypt.conf;
 
 	location / {
-		return 301 https://example.com$request_uri;
+		return 301 https://mall.com$request_uri;
 	}
 }
 </code></pre>
