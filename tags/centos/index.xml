@@ -6,10 +6,19 @@
     <description>Recent content in centos on yyc`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 15 Nov 2019 16:16:34 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 19 Nov 2019 15:04:27 +0800</lastBuildDate>
     
 	<atom:link href="https://caxavault.online/tags/centos/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>rclone挂载google driver到vps</title>
+      <link>https://caxavault.online/2019/012/</link>
+      <pubDate>Tue, 19 Nov 2019 15:04:27 +0800</pubDate>
+      
+      <guid>https://caxavault.online/2019/012/</guid>
+      <description>rclone可以帮助我们在Linux上挂载一些储存服务，包括google driver、one driver、aws s3等等，同时不会占用硬盘空</description>
+    </item>
     
     <item>
       <title>Vim配置</title>
