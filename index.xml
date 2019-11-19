@@ -52,6 +52,11 @@ rclone config file - 显示配置文件的路径，一般配置文件在 ~/.conf
 rclone config show - 显示配置文件信息
 &lt;/code&gt;&lt;/pre&gt;
 
+&lt;p&gt;&lt;em&gt;&lt;code&gt;rclone&lt;/code&gt;用法示例&lt;/em&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;rclone move -v /Download google:/Download --transfers=1
+&lt;/code&gt;&lt;/pre&gt;
+
 &lt;p&gt;&lt;em&gt;&lt;code&gt;rclone&lt;/code&gt;命令语法&lt;/em&gt;&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;# 本地到网盘
@@ -480,6 +485,7 @@ deactivate
 
 &lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;[common]
 bind_port = 选择一个端口（1024-49151）
+vhost_http_port = 选择一个端口（1024-49151）
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;配置改完之后，用&lt;code&gt;systemd&lt;/code&gt;运行服务：&lt;/p&gt;
@@ -500,6 +506,11 @@ type = tcp
 local_ip = 127.0.0.1
 local_port = 3389
 remote_port = 选择一个连接端口
+custom_domains = 选择一个连接域名
+
+[web]
+type = http
+local_port = 内网网站端口
 custom_domains = 选择一个连接域名
 &lt;/code&gt;&lt;/pre&gt;
 

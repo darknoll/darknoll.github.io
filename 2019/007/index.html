@@ -57,7 +57,7 @@
     "datePublished": "2019-11-03 13:45:13 \x2b0800 CST",
     "dateModified" : "2019-11-03 13:45:13 \x2b0800 CST",
     "url" : "https:\/\/caxavault.online\/2019\/007\/",
-    "wordCount" : "592",
+    "wordCount" : "634",
     "keywords" : [ "centos", "yyc`s Blog"]
 }
 </script>
@@ -164,6 +164,7 @@
 
 <pre><code class="language-bash">[common]
 bind_port = 选择一个端口（1024-49151）
+vhost_http_port = 选择一个端口（1024-49151）
 </code></pre>
 
 <p>配置改完之后，用<code>systemd</code>运行服务：</p>
@@ -184,6 +185,11 @@ type = tcp
 local_ip = 127.0.0.1
 local_port = 3389
 remote_port = 选择一个连接端口
+custom_domains = 选择一个连接域名
+
+[web]
+type = http
+local_port = 内网网站端口
 custom_domains = 选择一个连接域名
 </code></pre>
 
