@@ -24,7 +24,7 @@
 &lt;li&gt;&lt;strong&gt;仓库(Repository)&lt;/strong&gt;：类似于代码仓库，这里是镜像仓库，是&lt;code&gt;Docker&lt;/code&gt;用来集中存放镜像文件的地方。注意与&lt;code&gt;注册服务器(Registry)&lt;/code&gt;的区别：注册服务器是存放仓库的地方，一般会有多个仓库；而仓库是存放镜像的地方，一般每个仓库存放一类镜像，每个镜像利用&lt;code&gt;tag&lt;/code&gt;进行区分，比如&lt;code&gt;Ubuntu&lt;/code&gt;仓库存放有多个版本（12.04、14.04等）的&lt;code&gt;Ubuntu&lt;/code&gt;镜像。&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;###获取镜像&lt;/p&gt;
+&lt;h3 id=&#34;获取镜像&#34;&gt;获取镜像&lt;/h3&gt;
 
 &lt;p&gt;从 Docker 镜像仓库获取镜像的命令是 &lt;code&gt;docker pull&lt;/code&gt;，其命令格式为：&lt;/p&gt;
 
@@ -105,7 +105,7 @@ docker rmi &amp;lt;镜像1&amp;gt; [&amp;lt;镜像2&amp;gt; ...]
 &lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;###利用commit理解镜像构成&lt;/p&gt;
+&lt;h3 id=&#34;利用commit理解镜像构成&#34;&gt;利用commit理解镜像构成&lt;/h3&gt;
 
 &lt;p&gt;注意： &lt;code&gt;docker commit&lt;/code&gt; 命令除了学习之外，还有一些特殊的应用场合，比如被入侵后保存现场等。但是，不要使用 &lt;code&gt;docker commit&lt;/code&gt; 定制镜像，定制镜像应该使用 &lt;code&gt;Dockerfile&lt;/code&gt; 来完成。如果你想要定制镜像请查看下一小节。&lt;/p&gt;
 

@@ -57,7 +57,7 @@
     "datePublished": "2019-11-20 16:38:33 \x2b0800 CST",
     "dateModified" : "2019-11-20 16:38:33 \x2b0800 CST",
     "url" : "https:\/\/caxavault.online\/2019\/013\/",
-    "wordCount" : "3014",
+    "wordCount" : "3008",
     "keywords" : [ "centos", "yyc`s Blog"]
 }
 </script>
@@ -156,7 +156,7 @@
 <li><strong>仓库(Repository)</strong>：类似于代码仓库，这里是镜像仓库，是<code>Docker</code>用来集中存放镜像文件的地方。注意与<code>注册服务器(Registry)</code>的区别：注册服务器是存放仓库的地方，一般会有多个仓库；而仓库是存放镜像的地方，一般每个仓库存放一类镜像，每个镜像利用<code>tag</code>进行区分，比如<code>Ubuntu</code>仓库存放有多个版本（12.04、14.04等）的<code>Ubuntu</code>镜像。</li>
 </ol>
 
-<p>###获取镜像</p>
+<h3 id="获取镜像">获取镜像</h3>
 
 <p>从 Docker 镜像仓库获取镜像的命令是 <code>docker pull</code>，其命令格式为：</p>
 
@@ -237,7 +237,7 @@ docker rmi &lt;镜像1&gt; [&lt;镜像2&gt; ...]
 </code></pre></li>
 </ul>
 
-<p>###利用commit理解镜像构成</p>
+<h3 id="利用commit理解镜像构成">利用commit理解镜像构成</h3>
 
 <p>注意： <code>docker commit</code> 命令除了学习之外，还有一些特殊的应用场合，比如被入侵后保存现场等。但是，不要使用 <code>docker commit</code> 定制镜像，定制镜像应该使用 <code>Dockerfile</code> 来完成。如果你想要定制镜像请查看下一小节。</p>
 
