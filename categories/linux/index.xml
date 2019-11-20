@@ -6,10 +6,19 @@
     <description>Recent content in Linux on yyc`s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 19 Nov 2019 15:04:27 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 20 Nov 2019 16:38:33 +0800</lastBuildDate>
     
 	<atom:link href="https://caxavault.online/categories/linux/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Docker基础</title>
+      <link>https://caxavault.online/2019/013/</link>
+      <pubDate>Wed, 20 Nov 2019 16:38:33 +0800</pubDate>
+      
+      <guid>https://caxavault.online/2019/013/</guid>
+      <description>Docker的三个概念： 镜像(Image)：类似于虚拟机中的镜像，是一个包含有文件系统的面向Docker引擎的只读模板。任何应用程序运行都需</description>
+    </item>
     
     <item>
       <title>rclone挂载google driver到vps</title>
